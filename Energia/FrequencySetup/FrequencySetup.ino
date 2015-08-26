@@ -1,6 +1,10 @@
 const unsigned long RES = 15;
 const unsigned int  PIN = 14;
 const unsigned int  PUSH = 5;
+const unsigned int  CNT_PIN = 11;
+
+long cnt = 0;
+int flag = 0;
 
 void setup()
 {
@@ -9,9 +13,14 @@ void setup()
   pinMode(PUSH, INPUT_PULLUP);
   pinMode(RED_LED, OUTPUT);
   digitalWrite(RED_LED, 0);
+  pinMode(CNT_PIN, INPUT);
+  Serial.begin(9600);
+  Serial.println("Aqui estoy!\n");
+  attachInterrupt(CNT_PIN, sendCnt, RISING);
+  
 }
 
-unsigned long value = 100;
+unsigned long value = 2200;
 
 void loop()
 {
@@ -28,4 +37,12 @@ void loop()
       digitalWrite(RED_LED, 0);
     }
   }
+  if(flag){
+    Serial.println(++cnt);
+    flag = 0;
+  }   
+}
+
+void sendCnt(void){
+  flag = 1;
 }
