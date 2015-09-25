@@ -14,7 +14,7 @@ void setup()
   pinMode(RED_LED, OUTPUT);
   digitalWrite(RED_LED, 0);
   pinMode(CNT_PIN, INPUT);
-  Serial.begin(9600);
+  Serial.begin(2000);
   Serial.println("Aqui estoy!\n");
   attachInterrupt(CNT_PIN, sendCnt, RISING);
   
@@ -38,7 +38,8 @@ void loop()
     }
   }
   if(flag){
-    Serial.println(++cnt);
+    //Serial.println(++cnt);
+    Serial.print(char(170));
     flag = 0;
   }   
 }
