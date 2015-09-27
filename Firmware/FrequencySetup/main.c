@@ -1,10 +1,6 @@
 #include <msp430g2553.h>
 #include "ports.h"
 
-/*
- * main.c
-*/
-
 #define SMCLK_PRESCALER 8
 
 unsigned long MCLK_freq;
@@ -23,10 +19,10 @@ unsigned int getTACCRfromFreq(unsigned int freq);
 int main(void) {
 	WDTCTL = WDTPW | WDTHOLD;	// Stop watchdog timer
 	ioSetup();
-	clkSetup(1); //Set MCLK to 16 MHz. SMCLK is set with a 1:8 prescaler
+	clkSetup(16); //Set MCLK to 16 MHz. SMCLK is set with a 1:8 prescaler
 	timerSetup();
 	interruptSetup();
-	setHVFrequency(100);
+	setHVFrequency(100); //---- This is a simple test. Set HV frequency here during evaluation
 	while(1);
 	return 0;
 }
@@ -59,7 +55,7 @@ void clkSetup(unsigned int freq){  //Frequency given in MHz
             DCOCTL  = CALDCO_1MHZ;
             freq    = 1;
     }
-    //BCSCTL2 |= 0x06; //1:8 Prescaler for SMCLK
+    BCSCTL2 |= 0x06; //1:8 Prescaler for SMCLK
     MCLK_freq = freq * 1000000;
     SMCLK_freq = MCLK_freq / SMCLK_PRESCALER;
 }
@@ -73,7 +69,7 @@ void interruptSetup(void){
     P1IES |=  PUSH_BTN; //Descending edge for interrupt detection on PUSH_BTN
     P1IFG &= ~PUSH_BTN; //Clear PUSH_BTN interrupt flag before enabling it
     P1IE  |=  PUSH_BTN; //Enable PUSH_BTN interrupt
-    //TACCTL0 = CCIE; //TACCR0 Interrupt Enable
+    //TACCTL0 = CCIE; //TACCR0 Interrupt Enable //----- TACCR0 Interrupts ain't used any more
     _BIS_SR(GIE); //General interrupts enable
 }
 
@@ -89,8 +85,7 @@ unsigned int getTACCRfromFreq(unsigned int freq){ //Input frequency in Hz
 // ------ Set frequency for HV operation -------------
 void setHVFrequency(unsigned int freq){ //Frequency given in Hz
     TACCR0 = getTACCRfromFreq(freq);
-    //TACCR1 = TACCR0 / 2;
-    TACCR1 = 1;
+    TACCR1 = TACCR0 / 2; // 50% Duty Cycle
 }
 
 
@@ -116,8 +111,6 @@ __interrupt void PORT1_ISR(void){
 		cnt++;
 	}
 }
-
-
 
 
 //TIMER0_A0 Interrupts aren't used to toggle HV pin any more
