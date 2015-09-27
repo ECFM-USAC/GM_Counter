@@ -1,5 +1,7 @@
 #include <msp430g2553.h>
 #include "ports.h"
+#include "lcd.h"
+#include <string.h>
 
 #define SMCLK_PRESCALER 8
 
@@ -23,6 +25,10 @@ int main(void) {
 	timerSetup();
 	interruptSetup();
 	setHVFrequency(100); //---- This is a simple test. Set HV frequency here during evaluation
+	lcd_init();
+	send_string("ECFM - USAC");
+	send_command(0xc0);
+	send_string("Geiger-Mõller");
 	while(1);
 	return 0;
 }
@@ -93,14 +99,27 @@ void ioSetup(void){
     P1DIR  =  0x00;
     P1DIR |=  (BIT0 + BIT2 + BIT6); //LED_OK + FREQ_OUT + SOUND_OUT
     P1DIR &= ~PUSH_BTN; //INPUT
-    P1OUT  =  SOUND_OUT;  //Speaker tied to VDD, so HIGH is default state
     P1REN  =  PUSH_BTN; //Enable pull-U/D restitor capabilities on PUSH_BTN
-    P1OUT |=  PUSH_BTN; //Pull-up
     P1SEL |=  FREQ_OUT; //PWM Output for HV Frequency Generator
 
     P2DIR  =  0x00;
     P2DIR &= ~PULSE_IN; //Input pulses
-    P2REN  = 0x00; //Disable pull-up/down resistor
+    P2REN  =  0x00; //Disable pull-up/down resistor
+
+    //LCD pins
+    //P1DIR |= (LCD_RS + LCD_EN);
+    //P2DIR |= (LCD_D4 + LCD_D5 + LCD_D6 + LCD_D7);
+    P1DIR |=  LCD_RS;
+    P1DIR |=  LCD_EN;
+    P2DIR |=  LCD_D4;
+    P2DIR |=  LCD_D5;
+    P2DIR |=  LCD_D6;
+    P2DIR |=  LCD_D7;
+
+    //Set POR values
+    P1OUT  =  SOUND_OUT;  //Speaker tied to VDD, so HIGH is default state
+    P1OUT |=  PUSH_BTN; //Pull-up
+    P2OUT = 0x00;
 }
 
 

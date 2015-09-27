@@ -1,15 +1,21 @@
 # FIXED
 
 main.obj: ../main.c
-main.obj: c:/ti/ccsv6/ccs_base/msp430/include/msp430g2553.h
-main.obj: c:/ti/ccsv6/ccs_base/msp430/include/in430.h
-main.obj: c:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include/intrinsics.h
-main.obj: c:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include/intrinsics_legacy_undefs.h
+main.obj: C:/ti/ccsv6/ccs_base/msp430/include/msp430g2553.h
+main.obj: C:/ti/ccsv6/ccs_base/msp430/include/in430.h
+main.obj: C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include/intrinsics.h
+main.obj: C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include/intrinsics_legacy_undefs.h
 main.obj: ../ports.h
+main.obj: ../lcd.h
+main.obj: C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include/string.h
+main.obj: C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include/linkage.h
 
 ../main.c: 
-c:/ti/ccsv6/ccs_base/msp430/include/msp430g2553.h: 
-c:/ti/ccsv6/ccs_base/msp430/include/in430.h: 
-c:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include/intrinsics.h: 
-c:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include/intrinsics_legacy_undefs.h: 
+C:/ti/ccsv6/ccs_base/msp430/include/msp430g2553.h: 
+C:/ti/ccsv6/ccs_base/msp430/include/in430.h: 
+C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include/intrinsics.h: 
+C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include/intrinsics_legacy_undefs.h: 
 ../ports.h: 
+../lcd.h: 
+C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include/string.h: 
+C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include/linkage.h: 

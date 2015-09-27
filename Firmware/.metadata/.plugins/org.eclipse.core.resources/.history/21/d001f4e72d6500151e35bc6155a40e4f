@@ -1,0 +1,76 @@
+/*
+ * lcd.c
+ *
+ *  Created on: 27/09/2015
+ *      Author: Ivan
+ */
+
+#include "lcd.h"
+
+unsigned int i;
+unsigned int j;
+void lcd_delay(unsigned int k){
+    for(j=0;j<=k;j++){
+        for(i=0;i<100;i++);
+    }
+}
+
+void data_write(void){
+    P1OUT |=  LCD_EN;
+    delay(2);
+    P1OUT &= ~LCD_EN;
+}
+
+void maskData(unsigned char bt, unsigned int *output){
+	output= {(bt>>4)&0x0F, bt&0x0F};
+}
+
+void send_command(unsigned char cmd){
+    unsigned int command[2];
+    maskData(cmd, command);
+
+	P1OUT &= ~LCD_RS;
+
+	P2OUT = (P2OUT & 0xF0) | (command[0]);
+	data_write();
+	P2OUT = (P2OUT & 0xF0) | (command[1]);
+	data_write();
+
+	/*
+
+    P1OUT = (P1OUT & 0xF0)|((cmd>>4) & 0x0F); // send higher nibble
+    data_write(); // give enable trigger
+    P1OUT = (P1OUT & 0xF0)|(cmd & 0x0F); // send lower nibble
+    data_write(); // give enable trigger
+    */
+}
+
+void send_data(unsigned char cmd){
+	unsigned int data[2];
+	maskData(cmd, data);
+    P1OUT |=  LCD_RS;
+
+    P2OUT = (P2OUT & 0xF0) | (data[0]);
+	data_write();
+	P2OUT = (P2OUT & 0xF0) | (data[1]);
+	data_write();
+}
+
+void send_string(char *s){
+    while(*s){
+        send_data(*s);
+        s++;
+    }
+}
+
+void lcd_init(void){
+    P1DIR |= 0xFF;
+    P1OUT &= 0x00;
+    send_command(0x33);
+    send_command(0x32);
+    send_command(0x28); // 4 bit mode
+    send_command(0x0E); // clear the screen
+    send_command(0x01); // display on cursor on
+    send_command(0x06); // increment cursor
+    send_command(0x80); // row 1 column 1
+}
