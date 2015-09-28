@@ -31,9 +31,9 @@ void send_command(unsigned char cmd){
 
     P1OUT &= ~LCD_RS; //Send command
 
-	P2OUT = (P2OUT & 0xF0) | (command[0]);
+	P2OUT = (P2OUT & 0xF0) + (command[0]);
 	data_write();
-	P2OUT = (P2OUT & 0xF0) | (command[1]);
+	P2OUT = (P2OUT & 0xF0) + (command[1]);
 	data_write();
 
 }
@@ -45,23 +45,48 @@ void send_data(unsigned char cmd){
 
     P1OUT |=  LCD_RS; //Send data
 
-    P2OUT = (P2OUT & 0xF0) | (data[0]);
+    P2OUT = (P2OUT & 0xF0) + (data[0]);
 	data_write();
-	P2OUT = (P2OUT & 0xF0) | (data[1]);
+	P2OUT = (P2OUT & 0xF0) + (data[1]);
 	data_write();
 }
 
-void send_string(char *s){
+void lcd_print(char *s){
     while(*s){
         send_data(*s++);
     }
+}
+
+void lcd_print_number(unsigned int number){
+	unsigned int n = number;
+	unsigned int nOut[16]; //At most 16 digits per number
+	unsigned int cnt = 0;
+	int i;
+	while(n>0){
+		nOut[cnt++] = n%10;
+		n /= 10;
+	}
+	for(i = --cnt; i >= 0; i--){
+		send_data(nOut[i]+48);
+	}
+}
+
+void lcd_gotoRow(unsigned int row){ //Row 1 or 2
+	switch(row){
+	case 2:
+		send_command(0xc0);
+		break;
+
+	default:
+		send_command(0x80);
+	}
 }
 
 void lcd_clear(void){
 	send_command(0x0E); // clear the screen
 	send_command(0x01); // display on cursor on
 	send_command(0x06); // increment cursor
-	send_command(0x80); // row 1 column 1
+	lcd_gotoRow(1);     // row 1 column 1
 }
 
 void lcd_init(void){

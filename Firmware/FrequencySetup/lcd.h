@@ -16,8 +16,10 @@ void data_write(void);
 void data_read(void);
 void send_command(unsigned char cmd);
 void send_data(unsigned char data);
-void send_string(char *s);
+void lcd_print(char *s);
+void lcd_print_number(unsigned int number);
 void lcd_init(void);
 void lcd_clear(void);
+void lcd_gotoRow(unsigned int row);
 
 #endif /* LCD_H_ */
