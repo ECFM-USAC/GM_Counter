@@ -2,12 +2,12 @@
 #define HVVALUES_H_
 
 
-#define START_FREQUENCY 1000
-#define STOP_FREQUENCY 6000
-#define STEP = 100
-#define COUNT = (START_FREQUENCY - STOP_FREQUENCY) / STEP + 1
+const unsigned int START_FREQUENCY = 1000;
+const unsigned int STOP_FREQUENCY  = 6600;
+const unsigned int STEP_FREQUENCY  = 100;
+unsigned int COUNT = (START_FREQUENCY - STOP_FREQUENCY) / STEP_FREQUENCY + 1;
 
-const unsigned int VOLTAGES[COUNT] = {
+const unsigned int VOLTAGES[] = {
 	524, 524, 524, 524, 524,
 	524, 524, 524, 524, 524,
 	524, 524, 520, 520, 520,
@@ -19,9 +19,9 @@ const unsigned int VOLTAGES[COUNT] = {
 	340, 332, 324, 316, 316,
 	316, 316, 312, 308, 304,
 	300
-}
+};
 
-const unsigned int ORIGINAL_VOLTAGES[COUNT] = {
+const unsigned int ORIGINAL_VOLTAGES[] = {
 	524, 524, 524, 524, 524,
 	524, 524, 524, 524, 524,
 	524, 524, 520, 520, 520,
@@ -33,6 +33,6 @@ const unsigned int ORIGINAL_VOLTAGES[COUNT] = {
 	340, 332, 324, 316, 316,
 	324, 316, 312, 308, 304,
 	300
-}
+};
 
 #endif

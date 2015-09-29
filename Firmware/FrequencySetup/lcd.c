@@ -57,8 +57,8 @@ void lcd_print(char *s){
     }
 }
 
-void lcd_print_number(unsigned int number){
-	unsigned int n = number;
+void lcd_print_number(unsigned long number){
+	unsigned long n = number;
 	unsigned int nOut[16]; //At most 16 digits per number
 	unsigned int cnt = 0;
 	int i;

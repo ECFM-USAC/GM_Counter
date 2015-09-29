@@ -1,16 +1,21 @@
 #include "setup.h"
+#include "gmCore.h"
 
 
 void ioSetup(void){
     P1DIR  =  0x00;
-    P1DIR |=  (BIT0 + BIT2 + BIT6); //LED_OK + FREQ_OUT + SOUND_OUT
+    P1DIR |=  LED_OK;
+    P1DIR |=  FREQ_OUT;
     P1DIR &= ~PUSH_BTN; //INPUT
     P1REN  =  PUSH_BTN; //Enable pull-U/D restitor capabilities on PUSH_BTN
     P1SEL |=  FREQ_OUT; //PWM Output for HV Frequency Generator
 
     P2DIR  =  0x00;
+    P2DIR |=  SOUND_OUT;
     P2DIR &= ~PULSE_IN; //Input pulses
-    P2REN  =  0x00; //Disable pull-up/down resistor
+    P2REN |=  PULSE_IN; //Enable pull-down resistor for PULSE_IN
+    P2SEL2 =  0x00;
+    P2SEL |=  SOUND_OUT; //PWM Output for Sound
 
     //LCD pins
     //P1DIR |= (LCD_RS + LCD_EN);
@@ -23,9 +28,12 @@ void ioSetup(void){
     P2DIR |=  LCD_D7;
 
     //Set POR values
-    P1OUT  =  SOUND_OUT;  //Speaker tied to VDD, so HIGH is default state
+    P1OUT  =  0x00;
     P1OUT |=  PUSH_BTN; //Pull-up
-    P2OUT = 0x00;
+    P2OUT  =  0x00;
+    P2OUT  =  SOUND_OUT;  //Speaker tied to VDD, so HIGH is default state
+
+    initGM(); //Initialize GM Core
 }
 
 
@@ -61,10 +69,15 @@ void clkSetup(unsigned int freq){  //Frequency given in MHz
     SMCLK_freq = MCLK_freq / SMCLK_PRESCALER;
 }
 
+
 void timerSetup(void){
-    TA0CTL = TASSEL_2 + ID_0 + MC_1 + TACLR;
-    TA0CCTL1 = OUTMOD_7;
+    TA0CTL = TASSEL_2 + ID_0 + MC_1 + TACLR; //SMCLK + 1:1 PRE + UP MODE + CLEAR TMR
+    TA0CCTL1 = OUTMOD_7;                     //RESET/SET MODE FOR PWM
+
+    TA1CTL = TASSEL_2 + ID_0 + MC_0 + TACLR; //SMCLK + 1:1 PRE + STOP + CLEAR TMR
+    TA1CCTL2  = OUTMOD_7;                    //RESET/SET MODE FOR PWM
 }
+
 
 void interruptSetup(void){
     P1IES |=  PUSH_BTN; //Descending edge for interrupt detection on PUSH_BTN
@@ -75,8 +88,10 @@ void interruptSetup(void){
 
     P2IFG  =  0x00; //Clear all interrupt flags from P2
     P2IE   =  0x00; //Disable all interrupts on P2
+    P2IES  =  0x00; //Ascending edge interrupt for P2
+    P2IE   =  0x00; //Disable all interrupts on P2
+    P2IE  |=  PULSE_IN; //Enable interrupts for GM counts
 
     //TACCTL0 = CCIE; //TACCR0 Interrupt Enable //----- TACCR0 Interrupts ain't used any more
     _BIS_SR(GIE); //General interrupts enable
 }
-
