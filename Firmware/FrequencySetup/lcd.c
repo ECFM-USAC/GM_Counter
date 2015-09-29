@@ -1,9 +1,3 @@
-/*
- * lcd.c
- *
- *  Created on: 27/09/2015
- *      Author: Ivan
- */
 
 #include "lcd.h"
 
@@ -58,6 +52,10 @@ void lcd_print(char *s){
 }
 
 void lcd_print_number(unsigned long number){
+	if (number == 0){
+		send_data(48); //Send a '0' character
+		return;
+	}
 	unsigned long n = number;
 	unsigned int nOut[16]; //At most 16 digits per number
 	unsigned int cnt = 0;
@@ -83,8 +81,8 @@ void lcd_gotoRow(unsigned int row){ //Row 1 or 2
 }
 
 void lcd_clear(void){
-	send_command(0x0E); // clear the screen
-	send_command(0x01); // display on cursor on
+	send_command(0x0C); // display on
+	send_command(0x01); // cursor off
 	send_command(0x06); // increment cursor
 	lcd_gotoRow(1);     // row 1 column 1
 }

@@ -31,7 +31,6 @@ void ioSetup(void){
     P1OUT  =  0x00;
     P1OUT |=  PUSH_BTN; //Pull-up
     P2OUT  =  0x00;
-    P2OUT  =  SOUND_OUT;  //Speaker tied to VDD, so HIGH is default state
 
     initGM(); //Initialize GM Core
 }

@@ -5,7 +5,7 @@
 const unsigned int START_FREQUENCY = 1000;
 const unsigned int STOP_FREQUENCY  = 6600;
 const unsigned int STEP_FREQUENCY  = 100;
-unsigned int COUNT = (START_FREQUENCY - STOP_FREQUENCY) / STEP_FREQUENCY + 1;
+const unsigned int COUNT = (START_FREQUENCY - STOP_FREQUENCY) / STEP_FREQUENCY + 1;
 
 const unsigned int VOLTAGES[] = {
 	524, 524, 524, 524, 524,

@@ -1,10 +1,3 @@
-/*
- * lcd.h
- *
- *  Created on: 27/09/2015
- *      Author: Ivan
- */
-
 #include <msp430g2553.h>
 #include "ports.h"
 

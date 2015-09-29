@@ -49,6 +49,8 @@ __interrupt void PORT1_ISR(void){
 	if(P1IFG & BIT3){ //PUSH BUTTON
 		P1IFG &= ~PUSH_BTN;
 		hvFrequency = (hvFrequency + STEP_FREQUENCY) % (STOP_FREQUENCY);
+		if(hvFrequency < START_FREQUENCY)
+			hvFrequency = START_FREQUENCY;
 		setHvFlag = 1;
 		_BIS_SR(GIE); //Enable interrupts before going back to sleep
 		_BIC_SR(LPM1_EXIT);
@@ -57,6 +59,7 @@ __interrupt void PORT1_ISR(void){
 
 #pragma vector = PORT2_VECTOR
 __interrupt void PORT2_ISR(void){
+	//TA0CCR2 drives HV frequency generator
     if(P2IFG & BIT4){ //Pulse in
         P2IFG &= ~PULSE_IN;
         setCountFlag = 1;
@@ -82,10 +85,11 @@ __interrupt void TACCR0_ISR(void){<
 }
 */
 
+// Timer1_A3 Interrupt Vector (TAIV) handler
 #pragma vector=TIMER1_A1_VECTOR
 __interrupt void TA1CCR2_ISR(void){
-    if(TA1CCTL2 & CCIFG){
-    //if(TA1IV & BIT4){ //TA1CCR2 IFG
+	//TA1CCR2 Drives PWM for 2kHz sound output
+    if(TA1IV == TA1IV_TACCR2){
         if(tickCount < CYCLES_PER_TICK){
             tickCount++;
         }else{

@@ -7,8 +7,10 @@ void setHVFrequency(unsigned int freq){ //Frequency given in Hz
 }
 
 void setSoundFrequency(unsigned int freq){
-    TA1CCR0 = getTACCRfromFreq(freq);
-    TA1CCR2 = TA1CCR0 / 2;
+    //TA1CCR0 = getTACCRfromFreq(freq);
+	TA1CCR0  = 999;
+    TA1CCTL2 = OUTMOD_7;
+    TA1CCR2  = TA1CCR0 / 2;
 }
 
 void initGM(void){
@@ -17,7 +19,7 @@ void initGM(void){
 }
 
 void soundOn(void){
-    TA1CTL   |= MC_1 + TACLR;  //TA1 Mode: UP
+    TA1CTL   |= TASSEL_2 + MC_1 + TACLR;  //TA1 Mode: UP
     TA1CCTL2 |= CCIE; //Enable interrupts
 }
 

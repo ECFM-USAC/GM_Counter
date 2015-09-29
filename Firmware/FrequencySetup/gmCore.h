@@ -6,8 +6,8 @@
 #define SOUND_FREQUENCY 2000
 #define CYCLES_PER_TICK 10 //Sound cycles for each tick
 
-unsigned long pulseCount;
-unsigned long tickCount;
+volatile unsigned long pulseCount;
+volatile unsigned long tickCount;
 
 
 void setHVFrequency(unsigned int freq);
