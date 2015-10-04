@@ -54,14 +54,14 @@ __interrupt void P1_ISR(void){
 		P1SEL    |=  0x40;  //Enable PWM output for SoundOut
 		TA0CCTL1 &= ~CCIFG; //Clear TA0CCR1 interrupt flag
 		TA0CCTL1 |=  CCIE;  //Enable TA0CCR1 interrupt
-		ticks = 0;
+		ticks = MAX_TICKS;
 	}
 }
 
 #pragma vector = TIMER0_A1_VECTOR
 __interrupt void T0A1_ISR(void){
 	if(TA0IV == TA0IV_TACCR1){
-		if(++ticks == MAX_TICKS){
+		if(!(--ticks)){
 			P1SEL    &= ~0x40; //Disable PWM for SoundOut
 			TA0CCTL1 &= ~CCIE; //Disable TACCR1 Interrupts
 		}
