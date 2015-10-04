@@ -37,3 +37,6 @@ Icon
 
 #Eclipse's Metadata
 Firmware/.metadata/
+*.xml
+Firmware/.metadata/.plugins/com.ti.dvt.datamodel/SolutionMgr.xml
+*.xml

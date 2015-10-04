@@ -8,8 +8,11 @@ CG_TOOL_ROOT := C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5
 
 ORDERED_OBJS += \
 $(GEN_CMDS__FLAG) \
+"./timing.obj" \
+"./setup.obj" \
 "./main.obj" \
 "./lcd.obj" \
+"./gmCore.obj" \
 "../lnk_msp430g2553.cmd" \
 -l"libc.a" \
 
@@ -141,8 +144,8 @@ FrequencySetup.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(EXE_OUTPUTS__QUOTED)$(BIN_OUTPUTS__QUOTED)
-	-$(RM) "lcd.pp" "main.pp" 
-	-$(RM) "lcd.obj" "main.obj" 
+	-$(RM) "gmCore.pp" "lcd.pp" "main.pp" "setup.pp" "timing.pp" 
+	-$(RM) "gmCore.obj" "lcd.obj" "main.obj" "setup.obj" "timing.obj" 
 	-@echo 'Finished clean'
 	-@echo ' '
 
