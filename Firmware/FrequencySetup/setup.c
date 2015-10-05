@@ -7,15 +7,15 @@ void ioSetup(void){
     P1DIR |=  LED_OK;
     P1DIR |=  FREQ_OUT;
     P1DIR &= ~PUSH_BTN; //INPUT
+    P1DIR |=  SOUND_OUT; //Sound out otput
     P1REN  =  PUSH_BTN; //Enable pull-U/D restitor capabilities on PUSH_BTN
     P1SEL |=  FREQ_OUT; //PWM Output for HV Frequency Generator
+    P1SEL2 =  0x00;
 
     P2DIR  =  0x00;
-    P2DIR |=  SOUND_OUT;
     P2DIR &= ~PULSE_IN; //Input pulses
     P2REN |=  PULSE_IN; //Enable pull-down resistor for PULSE_IN
-    P2SEL2 =  0x00;
-    P2SEL |=  SOUND_OUT; //PWM Output for Sound
+
 
     //LCD pins
     //P1DIR |= (LCD_RS + LCD_EN);
@@ -73,8 +73,10 @@ void timerSetup(void){
     TA0CTL = TASSEL_2 + ID_0 + MC_1 + TACLR; //SMCLK + 1:1 PRE + UP MODE + CLEAR TMR
     TA0CCTL1 = OUTMOD_7;                     //RESET/SET MODE FOR PWM
 
+    /*//TA1 Not used to generate sound any more
     TA1CTL = TASSEL_2 + ID_0 + MC_0 + TACLR; //SMCLK + 1:1 PRE + STOP + CLEAR TMR
     TA1CCTL2  = OUTMOD_7;                    //RESET/SET MODE FOR PWM
+    */
 }
 
 

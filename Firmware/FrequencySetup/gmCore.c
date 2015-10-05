@@ -1,5 +1,6 @@
 #include "gmCore.h"
 #include "timing.h"
+#include "ports.h"
 // ------ Set frequency for HV operation -------------
 void setHVFrequency(unsigned int freq){ //Frequency given in Hz
     TACCR0 = getTACCRfromFreq(freq);
@@ -19,17 +20,17 @@ void initGM(void){
 }
 
 void soundOn(void){
-    TA1CTL   |= TASSEL_2 + MC_1 + TACLR;  //TA1 Mode: UP
-    TA1CCTL2 |= CCIE; //Enable interrupts
+    P1SEL    |=  SOUND_OUT; //Enable PWM output for SoundOut
+	TA0CCTL1 &= ~CCIFG; //Clear TA0CCR1 interrupt flag
+	TA0CCTL1 |=  CCIE;  //Enable TA0CCR1 interrupt
 }
 
 void soundOff(void){
-    TA1CTL   &= ~0x30; //TA1 Mode: OFF
-    TA1CTL   |= TACLR; //Clear TIMER1_A counter
-    TA1CCTL2 &= ~CCIE; //Disable interrupts
+	P1SEL    &= ~SOUND_OUT; //Disable PWM output mux for SoundOut
+	TA0CCTL1 &= ~CCIE; //Disable TACCR1 Interrupts
 }
 
 void soundTick(void){ //Make a "tick" GM-like sound
-    tickCount = 0; //How many cycles per tick?
+	tickCount = CYCLES_PER_TICK; //How many cycles per tick?
     soundOn(); //Sound will be turned off within ISR
 }

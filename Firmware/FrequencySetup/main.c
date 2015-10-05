@@ -1,3 +1,12 @@
+/*
+ * HARDWARE ToDo LIST
+ * 	- Convert to anode sensing
+ * 	- Measure HV stage
+ * 	- Implement a PID to control HV
+*/
+
+
+
 #include <msp430g2553.h>
 #include "ports.h" //Port definitions
 #include "setup.h" //Init functions
@@ -42,7 +51,6 @@ int main(void) {
 	}
 }
 
-//---------------------- CONVERT TO ANODE SENSING GM ------------------------------------
 
 #pragma vector = PORT1_VECTOR
 __interrupt void PORT1_ISR(void){
@@ -72,19 +80,19 @@ __interrupt void PORT2_ISR(void){
 }
 
 //TIMER0_A0 Interrupts aren't used to toggle HV pin any more
-/*
-#pragma vector = TIMER0_A0_VECTOR
-__interrupt void TACCR0_ISR(void){<
-    //CCR0 used for HV frequency generator
-    //if(TACCTL0 & CCIFG){ //TACCTL0 Interrupt Flag
-    if(CCIFG){ //TACCTL0 Interrupt Flag
-        //P1OUT ^= FREQ_OUT; //Toggle corresponding pin
-        ++cnt;
+//CCR1 used for Sound Out
+#pragma vector = TIMER0_A1_VECTOR
+__interrupt void T0A1_ISR(void){
+	if(TA0IV == TA0IV_TACCR1){
+	//CCIFG is automatically cleared
+		if(!(--tickCount)){
+			soundOff();
+		}
     }
-    //CCIFG is automatically cleared
 }
-*/
 
+
+/*
 // Timer1_A3 Interrupt Vector (TAIV) handler
 #pragma vector=TIMER1_A1_VECTOR
 __interrupt void TA1CCR2_ISR(void){
@@ -98,3 +106,4 @@ __interrupt void TA1CCR2_ISR(void){
         }
     }
 }
+*/

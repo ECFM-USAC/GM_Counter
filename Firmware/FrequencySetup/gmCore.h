@@ -4,7 +4,7 @@
 #define GMCORE_H_
 
 #define SOUND_FREQUENCY 2000
-#define CYCLES_PER_TICK 10 //Sound cycles for each tick
+#define CYCLES_PER_TICK 4 //Sound cycles for each tick
 
 volatile unsigned long pulseCount;
 volatile unsigned long tickCount;
