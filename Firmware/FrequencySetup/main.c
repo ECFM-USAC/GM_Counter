@@ -15,7 +15,7 @@
 #include "gmCore.h" //GM high-level functions
 #include "hvValues.h" //HV-freq table
 
-unsigned int hvFrequency = START_FREQUENCY;
+volatile unsigned int hvFrequency = START_FREQUENCY;
 
 unsigned int setHvFlag = 1;
 unsigned int setCountFlag = 1;

@@ -2,7 +2,7 @@
 <link_info>
    <banner>MSP430 Linker PC v4.4.5</banner>
    <copyright>Copyright (c) 2003-2015 Texas Instruments Incorporated</copyright>
-   <link_time>0x5612a6e7</link_time>
+   <link_time>0x56140428</link_time>
    <link_errors>0x0</link_errors>
    <output_file>FrequencySetup.out</output_file>
    <entry_point>
