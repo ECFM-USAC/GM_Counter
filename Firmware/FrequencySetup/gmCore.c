@@ -7,16 +7,10 @@ void setHVFrequency(unsigned int freq){ //Frequency given in Hz
     TACCR1 = TACCR0 / 2; // 50% Duty Cycle
 }
 
-void setSoundFrequency(unsigned int freq){
-    //TA1CCR0 = getTACCRfromFreq(freq);
-	TA1CCR0  = 999;
-    TA1CCTL2 = OUTMOD_7;
-    TA1CCR2  = TA1CCR0 / 2;
-}
 
 void initGM(void){
-    pulseCount = 0;
-    setSoundFrequency(2000);
+    pulseCount  = 0;
+    windowCount = 0;
 }
 
 void soundOn(void){

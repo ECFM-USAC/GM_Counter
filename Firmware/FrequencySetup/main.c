@@ -1,8 +1,11 @@
 /*
- * HARDWARE ToDo LIST
+ * ToDo LIST
+ *  - Implement timebase
+ *  - Debounce push buttons using WDT as timer
  * 	- Convert to anode sensing
  * 	- Measure HV stage
  * 	- Implement a PID to control HV
+ * 	- Control LCD's LED brightness (or at least, turn it on/off)
 */
 
 
@@ -15,7 +18,7 @@
 #include "gmCore.h" //GM high-level functions
 #include "hvValues.h" //HV-freq table
 
-volatile unsigned int hvFrequency = START_FREQUENCY;
+volatile unsigned int hvFrequency;
 
 unsigned int setHvFlag = 1;
 unsigned int setCountFlag = 1;
@@ -31,6 +34,11 @@ int main(void) {
 	lcd_print("ECFM - USAC");
 	lcd_gotoRow(2);
 	lcd_print("Geiger-Mõller"); //Geiger-Mõller
+
+	hvFrequency = START_FREQUENCY;
+
+	P1DIR |= BIT7;
+
 	while(1){
 		if(setHvFlag){
 			setHVFrequency(hvFrequency);
@@ -43,8 +51,10 @@ int main(void) {
 		}
 		if(setCountFlag){
 			lcd_gotoRow(2);
-			lcd_print("Counts: ");
-			lcd_print_number(pulseCount);
+			//lcd_print("Counts: ");
+			//lcd_print_number(pulseCount);
+			lcd_print("CPM: ");
+			lcd_print_number(cpm);
 			setCountFlag = 0;
 		}
 		_BIS_SR(LPM1);
@@ -72,6 +82,7 @@ __interrupt void PORT2_ISR(void){
         P2IFG &= ~PULSE_IN;
         setCountFlag = 1;
         pulseCount++;
+        windowCount++;
         soundTick();
         _BIS_SR(GIE); //Enable interrupts before going back to sleep
 		_BIC_SR(LPM1_EXIT);
@@ -91,19 +102,10 @@ __interrupt void T0A1_ISR(void){
     }
 }
 
-
-/*
-// Timer1_A3 Interrupt Vector (TAIV) handler
-#pragma vector=TIMER1_A1_VECTOR
-__interrupt void TA1CCR2_ISR(void){
-	//TA1CCR2 Drives PWM for 2kHz sound output
-    if(TA1IV == TA1IV_TACCR2){
-        if(tickCount < CYCLES_PER_TICK){
-            tickCount++;
-        }else{
-            soundOff();
-            _BIC_SR(LPM1_EXIT);
-        }
-    }
+#pragma vector = TIMER1_A0_VECTOR //1-second interrupt
+__interrupt void TA1CCR0_ISR(void){
+	TA1CCTL0 &= ~CCIFG;
+	cpm = windowCount * (60 / WINDOW_SIZE);
+	windowCount = 0;
+	//DO SOMETHING HERE!
 }
-*/

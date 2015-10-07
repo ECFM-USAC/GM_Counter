@@ -15,6 +15,7 @@ void ioSetup(void){
     P2DIR  =  0x00;
     P2DIR &= ~PULSE_IN; //Input pulses
     P2REN |=  PULSE_IN; //Enable pull-down resistor for PULSE_IN
+    P2SEL |= (BIT6 | BIT7); //ACLK input for 32768 Hz XTAL
 
 
     //LCD pins
@@ -37,6 +38,7 @@ void ioSetup(void){
 
 
 void clkSetup(unsigned int freq){  //Frequency given in MHz
+
     switch(freq){
         case 1:
             BCSCTL1 = CALBC1_1MHZ;
@@ -63,9 +65,15 @@ void clkSetup(unsigned int freq){  //Frequency given in MHz
             DCOCTL  = CALDCO_1MHZ;
             freq    = 1;
     }
+
     BCSCTL2 |= 0x06; //1:8 Prescaler for SMCLK
-    MCLK_freq = freq * 1000000;
+    BCSCTL1 |= XT2OFF + DIVA_3; //XT2 OFF + 1:8 PRESCALER FOR ACLK
+    BCSCTL3 |= LFXT1S_0 + XCAP_3;
+
+    MCLK_freq  = freq * 1000000;
     SMCLK_freq = MCLK_freq / SMCLK_PRESCALER;
+    ACLK_freq  = ACLK_XTAL / 8;
+
 }
 
 
@@ -73,10 +81,9 @@ void timerSetup(void){
     TA0CTL = TASSEL_2 + ID_0 + MC_1 + TACLR; //SMCLK + 1:1 PRE + UP MODE + CLEAR TMR
     TA0CCTL1 = OUTMOD_7;                     //RESET/SET MODE FOR PWM
 
-    /*//TA1 Not used to generate sound any more
-    TA1CTL = TASSEL_2 + ID_0 + MC_0 + TACLR; //SMCLK + 1:1 PRE + STOP + CLEAR TMR
-    TA1CCTL2  = OUTMOD_7;                    //RESET/SET MODE FOR PWM
-    */
+    TA1CTL    = TASSEL_1 + ID_3 + MC_1 + TACLR; //ACLK + 1:8 PRESCALER + UP MODE + TA1 CLEAR
+    TA1CCR0   = WINDOW_SIZE*512 - 1; //IRQ every WINDOW_SIZE seconds
+
 }
 
 
@@ -93,6 +100,8 @@ void interruptSetup(void){
     P2IE   =  0x00; //Disable all interrupts on P2
     P2IE  |=  PULSE_IN; //Enable interrupts for GM counts
 
-    //TACCTL0 = CCIE; //TACCR0 Interrupt Enable //----- TACCR0 Interrupts ain't used any more
+    TA1CCTL0 &= ~CCIFG; //Clear TimerA1_CCR0 Interrupt Flag
+    TA1CCTL0  = CM_0 + CCIE; //Enable interrupts for TA1CCR0
+
     _BIS_SR(GIE); //General interrupts enable
 }
