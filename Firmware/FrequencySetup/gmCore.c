@@ -9,8 +9,11 @@ void setHVFrequency(unsigned int freq){ //Frequency given in Hz
 
 
 void initGM(void){
-    pulseCount  = 0;
-    windowCount = 0;
+	unsigned char j;
+	pulseCount  = 0;
+    for(j = 0; j < (60/WINDOW_SIZE); j++){
+    	cps[j] = 0;
+    }
 }
 
 void soundOn(void){

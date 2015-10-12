@@ -9908,3 +9908,23 @@ Binding(CTRL+SHIFT+H,
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.cdt.ui.cViewScope,,,system)
+!SESSION 2015-10-12 08:58:20.981 -----------------------------------------------
+eclipse.buildId=4.3.0.M20130911-1000
+java.version=1.6.0_13
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=es_GT
+Framework arguments:  -product com.ti.ccstudio.branding.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product com.ti.ccstudio.branding.product
+
+!ENTRY com.ti.ccstudio.debug.server 4 214294189 2015-10-12 09:02:29.934
+!MESSAGE Unexpected CCS exit detected [8/10/15 09:29 AM]!!!
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-10-12 09:30:01.718
+!MESSAGE Indexed 'WDTdebounceTest' (1 sources, 5 headers) in 0.42 sec: 172 declarations; 590 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0.00%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-10-12 09:30:03.982
+!MESSAGE Indexed 'WDTdebounceTest' (1 sources, 5 headers) in 0.48 sec: 172 declarations; 590 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0.00%)
+
+!ENTRY com.ti.ccstudio.debug 1 0 2015-10-12 10:19:29.965
+!MESSAGE DS_ERROR: MSP430: Can't Single Step Target Program: Could not single step device
+

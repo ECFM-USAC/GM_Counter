@@ -6,12 +6,13 @@
 #define SOUND_FREQUENCY 2000
 #define CYCLES_PER_TICK 4 //Sound cycles for each tick
 
-#define WINDOW_SIZE 2 //Moving-average time window size (in seconds)
+#define WINDOW_SIZE 5 //Moving-average time window size (in seconds)
 
-unsigned long pulseCount; //Total pulses since last reset
-unsigned long tickCount;  //Pulses for tick sound generation
-unsigned long windowCount; //Pulses within moving-average window
-unsigned long cpm; //Counts per minute
+volatile unsigned long pulseCount; //Total pulses since last reset
+volatile unsigned long tickCount;  //Pulses for tick sound generation
+volatile unsigned int  windowCount; //Pulses within moving-average window
+volatile unsigned int  cps[60/WINDOW_SIZE]; //Array of counts per second
+volatile unsigned long cpm; //Counts per minute
 
 
 void setHVFrequency(unsigned int freq);

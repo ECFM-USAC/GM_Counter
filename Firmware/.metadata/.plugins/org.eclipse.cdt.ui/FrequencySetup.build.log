@@ -2,38 +2,6 @@
 **** Build of configuration Debug for project FrequencySetup ****
 
 "c:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
-'Building file: ../gmCore.c'
-'Invoking: MSP430 Compiler'
-"c:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="c:/ti/ccsv6/ccs_base/msp430/include" --include_path="c:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --diag_wrap=off --display_error_number --printf_support=minimal --preproc_with_compile --preproc_dependency="gmCore.pp"  "../gmCore.c"
-"../gmCore.c", line 7: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
-"..\gmCore.h", line 11: remark #1535-D: (ULP 8.1) variable "pulseCount" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
-"..\gmCore.h", line 12: remark #1535-D: (ULP 8.1) variable "tickCount" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
-"..\gmCore.h", line 13: remark #1535-D: (ULP 8.1) variable "windowCount" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
-'Finished building: ../gmCore.c'
-' '
-'Building file: ../main.c'
-'Invoking: MSP430 Compiler'
-"c:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="c:/ti/ccsv6/ccs_base/msp430/include" --include_path="c:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --diag_wrap=off --display_error_number --printf_support=minimal --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
-"..\hvValues.h", line 8: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
-"..\hvValues.h", line 8: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
-"..\hvValues.h", line 8: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
-"../main.c", line 69: remark #1530-D: (ULP 5.1) Detected modulo operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
-"../main.c", line 86: remark #1538-D: (ULP 10.1) ISR PORT2_ISR calls function soundTick. Recommend moving function call away from ISR, or inlining the function, or using pragmas
-"../main.c", line 100: remark #1538-D: (ULP 10.1) ISR T0A1_ISR calls function soundOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
-'Finished building: ../main.c'
-' '
-'Building file: ../setup.c'
-'Invoking: MSP430 Compiler'
-"c:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="c:/ti/ccsv6/ccs_base/msp430/include" --include_path="c:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --diag_wrap=off --display_error_number --printf_support=minimal --preproc_with_compile --preproc_dependency="setup.pp"  "../setup.c"
-"../setup.c", line 74: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
-'Finished building: ../setup.c'
-' '
-'Building target: FrequencySetup.out'
-'Invoking: MSP430 Linker'
-"c:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --diag_wrap=off --display_error_number --printf_support=minimal -z -m"FrequencySetup.map" --heap_size=80 --stack_size=80 -i"c:/ti/ccsv6/ccs_base/msp430/include" -i"c:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/lib" -i"c:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --reread_libs --warn_sections --diag_wrap=off --display_error_number --xml_link_info="FrequencySetup_linkInfo.xml" --rom_model -o "FrequencySetup.out"  "./timing.obj" "./setup.obj" "./main.obj" "./lcd.obj" "./gmCore.obj" "../lnk_msp430g2553.cmd" -l"libc.a" 
-<Linking>
-remark #10372-D: (ULP 4.1) Detected uninitialized Port 3 in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
-'Finished building target: FrequencySetup.out'
-' '
+gmake: Nothing to be done for `all'.
 
 **** Build Finished ****

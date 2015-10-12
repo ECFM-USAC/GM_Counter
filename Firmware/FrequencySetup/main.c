@@ -1,11 +1,14 @@
 /*
  * ToDo LIST
- *  - Implement timebase
+ *  - (DONE) Implement timebase
+ *  - (DONE) Measure CPM using timebase
+ *  - Set optimal time window for moving average CPM calculations
  *  - Debounce push buttons using WDT as timer
  * 	- Convert to anode sensing
  * 	- Measure HV stage
  * 	- Implement a PID to control HV
  * 	- Control LCD's LED brightness (or at least, turn it on/off)
+ * 	- Regulation and battery monitoring stage (Silvio)
 */
 
 
@@ -35,11 +38,12 @@ int main(void) {
 	lcd_gotoRow(2);
 	lcd_print("Geiger-Mõller"); //Geiger-Mõller
 
-	hvFrequency = START_FREQUENCY;
+	setHVFrequency(2000);
 
 	P1DIR |= BIT7;
 
 	while(1){
+		/*
 		if(setHvFlag){
 			setHVFrequency(hvFrequency);
 			lcd_clear();
@@ -49,12 +53,19 @@ int main(void) {
 			setHvFlag = 0;
 			setCountFlag = 1;
 		}
+		*/
+		hvFrequency = 2000;
 		if(setCountFlag){
+			lcd_gotoRow(1);
+			lcd_print("Counts: ");
+			lcd_print_number(pulseCount);
+			lcd_print("     ");
 			lcd_gotoRow(2);
 			//lcd_print("Counts: ");
 			//lcd_print_number(pulseCount);
 			lcd_print("CPM: ");
 			lcd_print_number(cpm);
+			lcd_print("        ");
 			setCountFlag = 0;
 		}
 		_BIS_SR(LPM1);
@@ -104,8 +115,15 @@ __interrupt void T0A1_ISR(void){
 
 #pragma vector = TIMER1_A0_VECTOR //1-second interrupt
 __interrupt void TA1CCR0_ISR(void){
+	unsigned int j;
 	TA1CCTL0 &= ~CCIFG;
-	cpm = windowCount * (60 / WINDOW_SIZE);
+	cpm = 0;
+	for(j = 1; j < (60/WINDOW_SIZE); j++){
+		cps[j] = cps[j-1];
+		cpm += cps[j];
+	}
+	cps[0] = windowCount;
 	windowCount = 0;
-	//DO SOMETHING HERE!
+	cpm += cps[0];
+	//cpm /= WINDOW_SIZE;
 }
