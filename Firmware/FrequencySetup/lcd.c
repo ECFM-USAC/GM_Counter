@@ -7,7 +7,7 @@ unsigned int j;
 
 void lcd_delay(unsigned int k){
     for(j=0;j<k;j++){
-        for(i=0;i<150*16;i++);
+        for(i=0;i<100*16;i++);
     }
 }
 
@@ -88,7 +88,7 @@ void lcd_clear(void){
 }
 
 void lcd_init(void){
-	lcd_delay(20);
+	lcd_delay(50);
 	send_command(0x33);
     send_command(0x32);
     send_command(0x28); // 4 bit mode

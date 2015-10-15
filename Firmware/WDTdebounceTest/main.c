@@ -40,8 +40,6 @@ int main(void) {
 			P1OUT  ^= LED;
 		}
 	}
-
-	return 0;
 }
 
 #pragma vector=PORT1_VECTOR

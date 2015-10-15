@@ -2,15 +2,16 @@
  * ToDo LIST
  *  - (DONE) Implement timebase
  *  - (DONE) Measure CPM using timebase
- *  - Set optimal time window for moving average CPM calculations
- *  - Debounce push buttons using WDT as timer
+ *  - (DONE) Implement moving average filter
+ *  - (DONE) Set optimal time window for moving average CPM calculations
+ *  - (NOT NECESSARY) Debounce push buttons using WDT as timer
+ *  - (DONE) Clear counter and temporarily disable PULSE_IN interrupts with push-button
+ * 	- (Temporarily set to a fixed 450 voltage) Measure HV stage
+ * 	- (Temporarily set to a fixed 450 voltage) Implement a discrete PID to control HV
  * 	- Convert to anode sensing
- * 	- Measure HV stage
- * 	- Implement a PID to control HV
  * 	- Control LCD's LED brightness (or at least, turn it on/off)
  * 	- Regulation and battery monitoring stage (Silvio)
 */
-
 
 
 #include <msp430g2553.h>
@@ -38,7 +39,7 @@ int main(void) {
 	lcd_gotoRow(2);
 	lcd_print("Geiger-Mõller"); //Geiger-Mõller
 
-	setHVFrequency(2000);
+	setHVFrequency(3500);
 
 	P1DIR |= BIT7;
 
@@ -77,12 +78,20 @@ int main(void) {
 __interrupt void PORT1_ISR(void){
 	if(P1IFG & BIT3){ //PUSH BUTTON
 		P1IFG &= ~PUSH_BTN;
+		resetCounters();
+		setCountFlag = 1;
+		/*
+		P1IFG &= ~PUSH_BTN;
 		hvFrequency = (hvFrequency + STEP_FREQUENCY) % (STOP_FREQUENCY);
 		if(hvFrequency < START_FREQUENCY)
 			hvFrequency = START_FREQUENCY;
 		setHvFlag = 1;
+		*/
 		_BIS_SR(GIE); //Enable interrupts before going back to sleep
 		_BIC_SR(LPM1_EXIT);
+	}else if(P1IFG & BIT2){ //USER BUTTON
+		P1IFG &= ~USER_BTN;
+		lcdLedOn();
 	}
 }
 
@@ -125,5 +134,7 @@ __interrupt void TA1CCR0_ISR(void){
 	cps[0] = windowCount;
 	windowCount = 0;
 	cpm += cps[0];
-	//cpm /= WINDOW_SIZE;
+	if(!(--backlightSeconds) & backlightEnabled){
+		lcdLedOff();
+	}
 }

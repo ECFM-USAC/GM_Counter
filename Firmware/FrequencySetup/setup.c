@@ -6,9 +6,11 @@ void ioSetup(void){
     P1DIR  =  0x00;
     P1DIR |=  LED_OK;
     P1DIR |=  FREQ_OUT;
-    P1DIR &= ~PUSH_BTN; //INPUT
+    P1DIR &= ~USER_BTN; //User button
+    P1DIR &= ~PUSH_BTN; //Reset counter button
     P1DIR |=  SOUND_OUT; //Sound out otput
     P1REN  =  PUSH_BTN; //Enable pull-U/D restitor capabilities on PUSH_BTN
+    P1REN |=  USER_BTN; //Enable pull-U/D restitor capabilities on USER_BTN
     P1SEL |=  FREQ_OUT; //PWM Output for HV Frequency Generator
     P1SEL2 =  0x00;
 
@@ -27,10 +29,12 @@ void ioSetup(void){
     P2DIR |=  LCD_D5;
     P2DIR |=  LCD_D6;
     P2DIR |=  LCD_D7;
+    P2DIR |=  LCD_LED;
 
     //Set POR values
     P1OUT  =  0x00;
     P1OUT |=  PUSH_BTN; //Pull-up
+    P1OUT |=  USER_BTN; //Pull-up
     P2OUT  =  0x00;
 
     initGM(); //Initialize GM Core
@@ -91,8 +95,10 @@ void interruptSetup(void){
     P1IES |=  PUSH_BTN; //Descending edge for interrupt detection on PUSH_BTN
     P1IFG  =  0x00; //Clear all interrupt flags from P1
     P1IFG &= ~PUSH_BTN; //Clear PUSH_BTN interrupt flag before enabling it
-    P1IE  =   0x00; //Disable all interrupts on P1
+    P1IFG &= ~USER_BTN;
+    P1IE   =   0x00; //Disable all interrupts on P1
     P1IE  |=  PUSH_BTN; //Enable PUSH_BTN interrupt
+    P1IE  |=  USER_BTN;
 
     P2IFG  =  0x00; //Clear all interrupt flags from P2
     P2IE   =  0x00; //Disable all interrupts on P2
