@@ -93,6 +93,7 @@ void timerSetup(void){
 
 void interruptSetup(void){
     P1IES |=  PUSH_BTN; //Descending edge for interrupt detection on PUSH_BTN
+    P1IES |=  USER_BTN; //Descending edge for interrupt detection on USER_BTN
     P1IFG  =  0x00; //Clear all interrupt flags from P1
     P1IFG &= ~PUSH_BTN; //Clear PUSH_BTN interrupt flag before enabling it
     P1IFG &= ~USER_BTN;

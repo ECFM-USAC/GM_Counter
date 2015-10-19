@@ -1,6 +1,7 @@
 #ifndef HVVALUES_H_
 #define HVVALUES_H_
 
+#define DEFAULT_FREQUENCY 3000
 
 const unsigned int START_FREQUENCY = 1000;
 const unsigned int STOP_FREQUENCY  = 6600;

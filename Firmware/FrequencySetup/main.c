@@ -8,7 +8,7 @@
  *  - (DONE) Clear counter and temporarily disable PULSE_IN interrupts with push-button
  * 	- (Temporarily set to a fixed 450 voltage) Measure HV stage
  * 	- (Temporarily set to a fixed 450 voltage) Implement a discrete PID to control HV
- * 	- Convert to anode sensing
+ * 	- (DONE) Convert to anode sensing
  * 	- Control LCD's LED brightness (or at least, turn it on/off)
  * 	- Regulation and battery monitoring stage (Silvio)
 */
@@ -39,7 +39,7 @@ int main(void) {
 	lcd_gotoRow(2);
 	lcd_print("Geiger-Mõller"); //Geiger-Mõller
 
-	setHVFrequency(3500);
+	setHVFrequency(DEFAULT_FREQUENCY);
 
 	P1DIR |= BIT7;
 
@@ -55,7 +55,7 @@ int main(void) {
 			setCountFlag = 1;
 		}
 		*/
-		hvFrequency = 2000;
+		//hvFrequency = 2000;
 		if(setCountFlag){
 			lcd_gotoRow(1);
 			lcd_print("Counts: ");
@@ -89,7 +89,7 @@ __interrupt void PORT1_ISR(void){
 		*/
 		_BIS_SR(GIE); //Enable interrupts before going back to sleep
 		_BIC_SR(LPM1_EXIT);
-	}else if(P1IFG & BIT2){ //USER BUTTON
+	}else if(P1IFG & BIT1){ //USER BUTTON
 		P1IFG &= ~USER_BTN;
 		lcdLedOn();
 	}
@@ -122,7 +122,7 @@ __interrupt void T0A1_ISR(void){
     }
 }
 
-#pragma vector = TIMER1_A0_VECTOR //1-second interrupt
+#pragma vector = TIMER1_A0_VECTOR //Window-Size seconds interrupt
 __interrupt void TA1CCR0_ISR(void){
 	unsigned int j;
 	TA1CCTL0 &= ~CCIFG;
@@ -134,7 +134,9 @@ __interrupt void TA1CCR0_ISR(void){
 	cps[0] = windowCount;
 	windowCount = 0;
 	cpm += cps[0];
-	if(!(--backlightSeconds) & backlightEnabled){
+	if(!((--backlightSeconds + 1)/WINDOW_SIZE) & backlightEnabled){
+		backlightSeconds = 0;
 		lcdLedOff();
 	}
+	setCountFlag = 1;
 }

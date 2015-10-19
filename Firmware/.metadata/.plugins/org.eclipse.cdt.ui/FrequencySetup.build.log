@@ -2,31 +2,21 @@
 **** Build of configuration Debug for project FrequencySetup ****
 
 "c:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
-'Building file: ../gmCore.c'
-'Invoking: MSP430 Compiler'
-"c:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="c:/ti/ccsv6/ccs_base/msp430/include" --include_path="c:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --diag_wrap=off --display_error_number --printf_support=minimal --preproc_with_compile --preproc_dependency="gmCore.pp"  "../gmCore.c"
-'Finished building: ../gmCore.c'
-' '
 'Building file: ../main.c'
 'Invoking: MSP430 Compiler'
 "c:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="c:/ti/ccsv6/ccs_base/msp430/include" --include_path="c:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --diag_wrap=off --display_error_number --printf_support=minimal --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
-"..\hvValues.h", line 8: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
-"..\hvValues.h", line 8: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
-"..\hvValues.h", line 8: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
 "../main.c", line 81: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function resetCounters. Recommend moving function call away from ISR, or inlining the function, or using pragmas
 "../main.c", line 94: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function lcdLedOn. Recommend moving function call away from ISR, or inlining the function, or using pragmas
 "../main.c", line 106: remark #1538-D: (ULP 10.1) ISR PORT2_ISR calls function soundTick. Recommend moving function call away from ISR, or inlining the function, or using pragmas
 "../main.c", line 120: remark #1538-D: (ULP 10.1) ISR T0A1_ISR calls function soundOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
 "../main.c", line 130: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
-"../main.c", line 138: remark #1538-D: (ULP 10.1) ISR TA1CCR0_ISR calls function lcdLedOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 137: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 139: remark #1538-D: (ULP 10.1) ISR TA1CCR0_ISR calls function lcdLedOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
 "../main.c", line 27: remark #1535-D: (ULP 8.1) variable "setHvFlag" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
 'Finished building: ../main.c'
-' '
-'Building file: ../setup.c'
-'Invoking: MSP430 Compiler'
-"c:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="c:/ti/ccsv6/ccs_base/msp430/include" --include_path="c:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --diag_wrap=off --display_error_number --printf_support=minimal --preproc_with_compile --preproc_dependency="setup.pp"  "../setup.c"
-"../setup.c", line 78: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
-'Finished building: ../setup.c'
 ' '
 'Building target: FrequencySetup.out'
 'Invoking: MSP430 Linker'
