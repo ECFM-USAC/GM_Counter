@@ -1,19 +1,3 @@
-/*
- * ToDo LIST
- *  - (DONE) Implement timebase
- *  - (DONE) Measure CPM using timebase
- *  - (DONE) Implement moving average filter
- *  - (DONE) Set optimal time window for moving average CPM calculations
- *  - (NOT NECESSARY) Debounce push buttons using WDT as timer
- *  - (DONE) Clear counter and temporarily disable PULSE_IN interrupts with push-button
- * 	- (Temporarily set to a fixed 450 voltage) Measure HV stage
- * 	- (Temporarily set to a fixed 450 voltage) Implement a discrete PID to control HV
- * 	- (DONE) Convert to anode sensing
- * 	- Control LCD's LED brightness (or at least, turn it on/off)
- * 	- Regulation and battery monitoring stage (Silvio)
-*/
-
-
 #include <msp430g2553.h>
 #include "ports.h" //Port definitions
 #include "setup.h" //Init functions
@@ -122,17 +106,17 @@ __interrupt void T0A1_ISR(void){
     }
 }
 
-#pragma vector = TIMER1_A0_VECTOR //Window-Size seconds interrupt
+#pragma vector = TIMER1_A0_VECTOR //Interrupt every WINDOW_SIZE seconds
 __interrupt void TA1CCR0_ISR(void){
 	unsigned int j;
-	TA1CCTL0 &= ~CCIFG;
-	cpm = 0;
-	for(j = 1; j < (60/WINDOW_SIZE); j++){
+	TA1CCTL0 &= ~CCIFG; //Clear IRQ flag
+	cpm = 0; //Clear cpm counter
+	for(j = 1; j < (60/WINDOW_SIZE); j++){ //Shift and add cps windowed values
 		cps[j] = cps[j-1];
 		cpm += cps[j];
 	}
 	cps[0] = windowCount;
-	windowCount = 0;
+	windowCount = 0; //Clear current window counter
 	cpm += cps[0];
 	if(!((--backlightSeconds + 1)/WINDOW_SIZE) & backlightEnabled){
 		backlightSeconds = 0;
