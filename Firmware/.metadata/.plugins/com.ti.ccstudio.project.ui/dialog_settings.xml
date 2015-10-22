@@ -11,11 +11,11 @@
 		<item value="c:\ti\ccsv6\ccs_base\common\targetdb\devices\MSP430G2553.xml" key="CCS.TARGET"/>
 		<item value="" key="CCS.CONNECTION"/>
 		<section name="1">
-			<item value="" key="CCS.DEVICE_ENDIANNESS"/>
 			<item value="" key="CCS.CODEGEN_TOOL_VERSION"/>
+			<item value="" key="CCS.DEVICE_ENDIANNESS"/>
 			<item value="null" key="CCS.LINKER_COMMAND_FILE"/>
-			<item value="null" key="CCS.RUNTIME_SUPPORT_LIB"/>
 			<item value="executable" key="CCS.OUTPUT_TYPE"/>
+			<item value="null" key="CCS.RUNTIME_SUPPORT_LIB"/>
 			<item value="" key="CCS.OUTPUT_FORMAT"/>
 		</section>
 	</section>
