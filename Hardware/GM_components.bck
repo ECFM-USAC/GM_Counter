@@ -1301,6 +1301,12 @@ K POWER REGUL
 F regulator\lm1578a.pdf
 $ENDCMP
 #
+$CMP LM358N
+D Dual Op amp (low power)
+K ampliop
+F ns/lm158.pdf
+$ENDCMP
+#
 $CMP LM723
 D Linear Regulator (adjustable)
 K POWER REGUL
@@ -1508,6 +1514,18 @@ $CMP LM79M05CT
 D LM79M05CT, Negative 0.5A 35V Linear Regulator, Fixed Output 5V, TO-220
 K Voltage Regulator 0.5A Negative
 F http://www.fairchildsemi.com/ds/LM/LM79M05.pdf
+$ENDCMP
+#
+$CMP LMC6062
+D Dual Op amp (low power)
+K ampliop
+F op_amps/lmc6062.pdf
+$ENDCMP
+#
+$CMP LMC6082
+D Dual Op amp (low power)
+K ampliop
+F op_amps/lmc6082.pdf
 $ENDCMP
 #
 $CMP LP2985LV
@@ -2183,6 +2201,12 @@ K REGULATOR LDO 5V
 F http://www.onsemi.com/pub_link/Collateral/NCP1117-D.PDF
 $ENDCMP
 #
+$CMP OPA2350
+D Dual Op amp (low power)
+K ampliop
+F ns/lm158.pdf
+$ENDCMP
+#
 $CMP PT6100
 D REG.ADJ.1A
 $ENDCMP
@@ -2225,6 +2249,16 @@ $ENDCMP
 $CMP SPX2920U-5.0
 D SPX2920U-5.0, 400mA Low drop-out regulator, Fixed Output 5V, TO-220
 K REGULATOR LDO 5V
+$ENDCMP
+#
+$CMP TL072
+D Dual Op amp (low power)
+K ampliop
+$ENDCMP
+#
+$CMP TL082
+D Dual Op amp (Cmos)
+K ampliop
 $ENDCMP
 #
 $CMP TL497
