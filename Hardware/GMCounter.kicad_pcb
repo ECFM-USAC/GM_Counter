@@ -3,7 +3,7 @@
   (general
     (links 118)
     (no_connects 0)
-    (area 36.894501 42.799 152.908001 163.033005)
+    (area 53.734499 42.812499 152.894501 136.892501)
     (thickness 1.6)
     (drawings 20)
     (tracks 474)
@@ -14,7 +14,7 @@
 
   (page A4)
   (layers
-    (0 F.Cu signal hide)
+    (0 F.Cu signal)
     (31 B.Cu signal)
     (32 B.Adhes user hide)
     (33 F.Adhes user hide)
@@ -2148,8 +2148,8 @@
   (gr_text "Contador GM" (at 82.804 65.278) (layer F.SilkS)
     (effects (font (size 1.5 1.5) (thickness 0.3)))
   )
-  (gr_text "Diseño\nIng. Iván Morales" (at 83.058 58.039) (layer B.SilkS)
-    (effects (font (size 2 2) (thickness 0.4)) (justify mirror))
+  (gr_text "Monterroso, Andrés\nMorales, Iván\nUrizar, Silvio" (at 79.375 54.229) (layer B.SilkS)
+    (effects (font (size 1.5 1.5) (thickness 0.3)) (justify mirror))
   )
   (gr_text USAC (at 82.931 60.96) (layer F.Mask)
     (effects (font (size 3 3) (thickness 0.6)))
