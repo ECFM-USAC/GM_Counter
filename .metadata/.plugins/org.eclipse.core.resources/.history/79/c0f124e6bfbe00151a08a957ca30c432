@@ -1,0 +1,84 @@
+#include <msp430.h> 
+
+/*
+ * main.c
+ */
+
+unsigned int adcVal;
+unsigned int avg;
+unsigned long cnt;
+
+
+int main(void) {
+    WDTCTL = WDTPW | WDTHOLD;	// Stop watchdog timer
+
+    BCSCTL1 = CALBC1_1MHZ;
+    DCOCTL  = CALDCO_1MHZ;
+    BCSCTL2 |= 0x06; //1:8 Prescaler for SMCLK
+    BCSCTL1 |= XT2OFF + DIVA_3; //XT2 OFF + 1:8 PRESCALER FOR ACLK
+        BCSCTL3 |= LFXT1S_0 + XCAP_3;
+
+    TA1CTL    = TASSEL_1 + ID_3 + MC_1 + TACLR; //ACLK + 1:8 PRESCALER + UP MODE + TA1 CLEAR
+	TA1CCR0   = WINDOW_SIZE*512 - 1; //IRQ every WINDOW_SIZE seconds
+	
+    P2OUT = 0x00;
+    P2DIR = 0xFF;
+
+    P1OUT = 0x00;
+    P1DIR = 0x01;
+
+    ADC10CTL0 = 0x0E80; //Reference buffer enabled only during conversion. ADC OFF. Slow sampling rate
+    //ADC10CTL1 = 0x7000; //ADC Ch 7 input single-sample mode
+
+    ADC10CTL1 = INCH_7 | ADC10DIV_7 | ADC10SSEL_3; //ADC Ch 7 input single-sample mode. 1/8 CLK Divider. SMCLK as source.
+    ADC10AE0 =  0x80; //Analog Input Ch 7 multiplexer enabled
+
+    ADC10DTC0 = 0x00;
+    ADC10DTC1 = 0x00;
+
+
+
+    ADC10CTL0 |= ADC10IE;
+    ADC10CTL0 |= ADC10SC | ENC | ADC10ON;
+
+    cnt = 0;
+    avg = 0;
+
+    _BIS_SR(GIE); //General interrupts enable
+
+    /*
+    for(;;){
+    	ADC10CTL0 |= 0x13; //ADC Enabled
+    	while(ADC10CTL1 & ADC10BUSY){
+    		;
+    	}
+    	adcVal = ADC10MEM;
+    }
+    */
+
+    while(1){
+    	;
+    }
+
+}
+
+/*
+#pragma vector = TIMER0_A1_VECTOR
+__interrupt void T0A1_ISR(void){
+	if(!(ADC10CTL1 & ADC10BUSY)){
+		adcVal = ADC10MEM;
+		ADC10CTL0 |= 0x13;
+		P1OUT ^= 0x01;
+	}
+}
+*/
+
+#pragma vector = ADC10_VECTOR
+__interrupt void ADC10_ISR(void){
+	ADC10CTL0 &= ~ADC10IFG;
+	P1OUT ^= 0x01;
+	adcVal = ADC10MEM;
+	ADC10CTL0 |= ADC10SC | ENC | ADC10ON;
+	avg = (avg + adcVal) >> 1;
+	++cnt;
+}

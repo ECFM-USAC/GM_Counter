@@ -1,0 +1,77 @@
+#include <msp430.h> 
+
+/*
+ * main.c
+ */
+
+unsigned int adcVal;
+
+int main(void) {
+    WDTCTL = WDTPW | WDTHOLD;	// Stop watchdog timer
+
+    BCSCTL1 = CALBC1_1MHZ;
+    DCOCTL  = CALDCO_1MHZ;
+	
+    P2OUT = 0x00;
+    P2DIR = 0xFF;
+
+    P1OUT = 0x00;
+    P1DIR = 0x01;
+
+    ADC10CTL0 = 0x0E80; //Reference buffer enabled only during conversion. ADC OFF. Slow sampling rate
+    //ADC10CTL1 = 0x7000; //ADC Ch 7 input single-sample mode
+
+    ADC10CTL1 = INCH2 | INCH1 | INCH 0 | ADC10DIV2 | ADC10DIV1 | ADC10DIV0; //ADC Ch 7 input single-sample mode. 1/8 CLK Divider
+    ADC10AE0 =  0x80; //Analog Input Ch 7 multiplexer enabled
+
+    ADC10DTC0 = 0x00;
+    ADC10DTC1 = 0x00;
+
+    BCSCTL2 |= 0x06; //1:8 Prescaler for SMCLK
+
+    TA0CTL = TASSEL_2 + ID_0 + MC_1 + TACLR; //SMCLK + 1:1 PRE + UP MODE + CLEAR TMR
+    //TACCR1 = 20000;
+    TACCR1 = 2;
+    TACCR1 = TACCR0 >> 1; // 50% Duty Cycle
+    TA0CCTL1 &= ~CCIFG; //Clear TimerA1_CCR0 Interrupt Flag
+    TA0CCTL1  = CM_0 + CCIE + OUTMOD_7; //Enable interrupts for TA0CCR0
+
+    ADC10CTL0 |= ADC10IE;
+    ADC10CTL0 |= ADC10SC | ENC | ADC10ON;
+
+    _BIS_SR(GIE); //General interrupts enable
+
+    /*
+    for(;;){
+    	ADC10CTL0 |= 0x13; //ADC Enabled
+    	while(ADC10CTL1 & ADC10BUSY){
+    		;
+    	}
+    	adcVal = ADC10MEM;
+    }
+    */
+
+    while(1){
+    	;
+    }
+
+}
+
+/*
+#pragma vector = TIMER0_A1_VECTOR
+__interrupt void T0A1_ISR(void){
+	if(!(ADC10CTL1 & ADC10BUSY)){
+		adcVal = ADC10MEM;
+		ADC10CTL0 |= 0x13;
+		P1OUT ^= 0x01;
+	}
+}
+*/
+
+#pragma vector = ADC10_VECTOR
+__interrupt void ADC10_ISR(void){
+	ADC10CTL0 &= ~ADC10IFG;
+	P1OUT ^= 0x01;
+	adcVal = ADC10MEM;
+	ADC10CTL0 |= ADC10SC | ENC | ADC10ON;
+}
