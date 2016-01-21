@@ -15,6 +15,7 @@ void ioSetup(void);
 void clkSetup(unsigned int freq);
 void timerSetup(void);
 void interruptSetup(void);
+void adcSetup(void);
 
 
 

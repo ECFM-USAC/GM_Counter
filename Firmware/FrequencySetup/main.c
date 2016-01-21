@@ -1,3 +1,11 @@
+//ToDo Calibration Testbed PCB:
+
+/*
+- Voltage measurement probe
+- RC Filter at pot input
+*/
+
+
 #include <msp430g2553.h>
 #include "ports.h" //Port definitions
 #include "setup.h" //Init functions
@@ -5,6 +13,7 @@
 #include "timing.h" //Timer drivers
 #include "gmCore.h" //GM high-level functions
 #include "hvValues.h" //HV-freq table
+#include "adc.h" //ADC-related computations
 
 volatile unsigned int hvFrequency;
 
@@ -16,6 +25,7 @@ int main(void) {
 	ioSetup();
 	clkSetup(16); //Set MCLK to 16 MHz. SMCLK is set with a 1:8 prescaler
 	timerSetup();
+	adcSetup();
 	interruptSetup();
 	//setHVFrequency(32); //---- This is a simple test. Set HV frequency here during evaluation
 	lcd_init();
@@ -23,7 +33,7 @@ int main(void) {
 	lcd_gotoRow(2);
 	lcd_print("Geiger-Mõller"); //Geiger-Mõller
 
-	setHVFrequency(DEFAULT_FREQUENCY);
+	//setHVFrequency(DEFAULT_FREQUENCY);
 
 	P1DIR |= BIT7;
 
@@ -40,6 +50,12 @@ int main(void) {
 		}
 		*/
 		//hvFrequency = 2000;
+		if(setHvFlag){
+			setHVFrequency(hvFrequency);
+			setHvFlag = 0;
+			setCountFlag = 1;
+		}
+
 		if(setCountFlag){
 			lcd_gotoRow(1);
 			lcd_print("Counts: ");
@@ -123,4 +139,11 @@ __interrupt void TA1CCR0_ISR(void){
 		lcdLedOff();
 	}
 	setCountFlag = 1;
+}
+
+#pragma vector = ADC10_VECTOR
+__interrupt void ADC10_ISR(void){
+	ADC10CTL0 &= ~ADC10IFG;
+	hvFrequency = frequencyFromAdc(ADC10MEM);
+	setHvFlag = 1;
 }

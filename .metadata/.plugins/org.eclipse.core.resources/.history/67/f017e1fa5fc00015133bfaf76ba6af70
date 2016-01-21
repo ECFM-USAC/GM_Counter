@@ -1,0 +1,15 @@
+/*
+ * adc.h
+ *
+ *  Created on: 21/01/2016
+ *      Author: Ivan
+ */
+
+#ifndef ADC_H_
+#define ADC_H_
+
+#define RESOLUTION_SHIFT 4 //ADC Data Right Shift (decrease resolution)
+
+
+
+#endif /* ADC_H_ */

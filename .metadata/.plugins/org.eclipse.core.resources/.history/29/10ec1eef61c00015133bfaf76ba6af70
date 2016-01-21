@@ -1,0 +1,6 @@
+#include "adc.h"
+
+unsigned int frequencyFromAdc(unsigned int adcValue){
+	adcValue >>= RESOLUTION_SHIFT;
+	return (START_FREQUENCY) + ((1 << (ADC10_RESOLUTION - RESOLUTION_SHIFT) - 1) - (adcValue)) * FREQUENCY_STEP;
+}

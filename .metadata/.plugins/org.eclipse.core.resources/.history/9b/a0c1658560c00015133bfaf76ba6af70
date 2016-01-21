@@ -1,0 +1,6 @@
+#include "adc.h"
+#include
+
+unsigned int frequencyFromAdc(unsigned int adcValue){
+	return (START_FREQUENCY) + (ADC10_RESOLUTION - RIGHT_SHIFT)
+}

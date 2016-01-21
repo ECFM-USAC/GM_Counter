@@ -19,6 +19,9 @@ void ioSetup(void){
     P2REN |=  PULSE_IN; //Enable pull-down resistor for PULSE_IN
     P2SEL |= (BIT6 | BIT7); //ACLK input for 32768 Hz XTAL
 
+    P3DIR = 0xFF; //Port 3 not physicaly implemented
+    P3OUT = 0xFF; //Reduce power consumption
+
 
     //LCD pins
     //P1DIR |= (LCD_RS + LCD_EN);
@@ -40,6 +43,15 @@ void ioSetup(void){
     initGM(); //Initialize GM Core
 }
 
+void adcSetup(void){
+	ADC10CTL0 = 0x0E80; //Reference buffer enabled only during conversion. ADC OFF. Slow sampling rate.
+	ADC10CTL1 = INCH_7 | ADC10DIV_7 | ADC10SSEL_3; //ADC Ch 7 input single-sample mode. 1/8 CLK Divider. SMCLK as source.
+	ADC10AE0 =  0x80; //Analog Input Ch 7 multiplexer enabled
+
+	//Direct memory transfer control disabled
+	ADC10DTC0 = 0x00;
+	ADC10DTC1 = 0x00;
+}
 
 void clkSetup(unsigned int freq){  //Frequency given in MHz
 
@@ -109,6 +121,9 @@ void interruptSetup(void){
 
     TA1CCTL0 &= ~CCIFG; //Clear TimerA1_CCR0 Interrupt Flag
     TA1CCTL0  = CM_0 + CCIE; //Enable interrupts for TA1CCR0
+
+    ADC10CTL0 |= ADC10IE; //ADC Interrupts Enabled
+    ADC10CTL0 |= ADC10SC | ENC | ADC10ON; //Start first conversion
 
     _BIS_SR(GIE); //General interrupts enable
 }

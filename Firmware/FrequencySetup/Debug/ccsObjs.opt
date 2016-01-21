@@ -1,1 +1,1 @@
-"./gmCore.obj" "./lcd.obj" "./main.obj" "./setup.obj" "./timing.obj" "../lnk_msp430g2553.cmd" -l"libc.a" 
+"./adc.obj" "./gmCore.obj" "./lcd.obj" "./main.obj" "./setup.obj" "./timing.obj" "../lnk_msp430g2553.cmd" -l"libc.a" 

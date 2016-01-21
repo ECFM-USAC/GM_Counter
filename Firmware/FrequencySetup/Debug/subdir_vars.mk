@@ -7,6 +7,7 @@ CMD_SRCS += \
 ../lnk_msp430g2553.cmd 
 
 C_SRCS += \
+../adc.c \
 ../gmCore.c \
 ../lcd.c \
 ../main.c \
@@ -14,6 +15,7 @@ C_SRCS += \
 ../timing.c 
 
 OBJS += \
+./adc.obj \
 ./gmCore.obj \
 ./lcd.obj \
 ./main.obj \
@@ -21,6 +23,7 @@ OBJS += \
 ./timing.obj 
 
 C_DEPS += \
+./adc.pp \
 ./gmCore.pp \
 ./lcd.pp \
 ./main.pp \
@@ -28,6 +31,7 @@ C_DEPS += \
 ./timing.pp 
 
 C_DEPS__QUOTED += \
+"adc.pp" \
 "gmCore.pp" \
 "lcd.pp" \
 "main.pp" \
@@ -35,6 +39,7 @@ C_DEPS__QUOTED += \
 "timing.pp" 
 
 OBJS__QUOTED += \
+"adc.obj" \
 "gmCore.obj" \
 "lcd.obj" \
 "main.obj" \
@@ -42,6 +47,7 @@ OBJS__QUOTED += \
 "timing.obj" 
 
 C_SRCS__QUOTED += \
+"../adc.c" \
 "../gmCore.c" \
 "../lcd.c" \
 "../main.c" \

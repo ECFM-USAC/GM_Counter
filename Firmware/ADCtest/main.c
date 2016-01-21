@@ -3,6 +3,7 @@
 unsigned int adcVal;
 unsigned int avg;
 unsigned long cnt;
+unsigned int freqOut;
 
 int main(void) {
     WDTCTL = WDTPW | WDTHOLD;	// Stop watchdog timer
@@ -20,6 +21,9 @@ int main(void) {
 
     P2OUT = 0x00;
     P2DIR = 0xFF;
+
+    P3OUT = 0x00;
+	P3DIR = 0xFF;
 
     P1OUT = 0x00;
     P1DIR = 0x01;
@@ -43,9 +47,9 @@ int main(void) {
     _BIS_SR(GIE); //General interrupts enable
 
     _BIS_SR(LPM1);
-    while(1){
+   /* while(1){
     	;
-    }
+    }*/
 }
 
 #pragma vector = TIMER1_A0_VECTOR
@@ -59,5 +63,6 @@ __interrupt void ADC10_ISR(void){
 	P1OUT ^= 0x01; //Toggle Red LED
 	adcVal = ADC10MEM; //Fetch ADC Data
 	avg = (avg + adcVal) >> 1;
+	freqOut = 2000 + (63 - (adcVal >> 4)) * 100;
 	++cnt;
 }

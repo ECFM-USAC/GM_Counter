@@ -2,6 +2,17 @@
 **** Build of configuration Debug for project FrequencySetup ****
 
 "C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
-gmake: Nothing to be done for `all'.
+'Building file: ../setup.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --diag_wrap=off --display_error_number --printf_support=minimal --preproc_with_compile --preproc_dependency="setup.pp"  "../setup.c"
+"../setup.c", line 90: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+'Finished building: ../setup.c'
+' '
+'Building target: FrequencySetup.out'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --diag_wrap=off --display_error_number --printf_support=minimal -z -m"FrequencySetup.map" --heap_size=80 --stack_size=80 -i"C:/ti/ccsv6/ccs_base/msp430/include" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --reread_libs --warn_sections --diag_wrap=off --display_error_number --xml_link_info="FrequencySetup_linkInfo.xml" --rom_model -o "FrequencySetup.out" "./adc.obj" "./gmCore.obj" "./lcd.obj" "./main.obj" "./setup.obj" "./timing.obj" "../lnk_msp430g2553.cmd"  -l"libc.a" 
+<Linking>
+'Finished building target: FrequencySetup.out'
+' '
 
 **** Build Finished ****
