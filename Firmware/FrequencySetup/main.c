@@ -69,7 +69,7 @@ int main(void) {
 			lcd_print("        ");
 			setCountFlag = 0;
 		}
-		_BIS_SR(LPM1);
+		//_BIS_SR(LPM1); //Sleep-mode not used any more
 	}
 }
 
@@ -104,6 +104,8 @@ __interrupt void PORT2_ISR(void){
         pulseCount++;
         windowCount++;
         soundTick();
+        ledTick();
+        lcdLedOn();
         _BIS_SR(GIE); //Enable interrupts before going back to sleep
 		_BIC_SR(LPM1_EXIT);
 
@@ -118,6 +120,7 @@ __interrupt void T0A1_ISR(void){
 	//CCIFG is automatically cleared
 		if(!(--tickCount)){
 			soundOff();
+			cntLedOff();
 		}
     }
 }
@@ -134,10 +137,15 @@ __interrupt void TA1CCR0_ISR(void){
 	cps[0] = windowCount;
 	windowCount = 0; //Clear current window counter
 	cpm += cps[0];
+
+	//LCD Backlight won't be turned off any more
+	/*
 	if(!((--backlightSeconds + 1)/WINDOW_SIZE) & backlightEnabled){
 		backlightSeconds = 0;
 		lcdLedOff();
 	}
+	*/
+
 	setCountFlag = 1;
 }
 
@@ -146,4 +154,6 @@ __interrupt void ADC10_ISR(void){
 	ADC10CTL0 &= ~ADC10IFG;
 	hvFrequency = frequencyFromAdc(ADC10MEM);
 	setHvFlag = 1;
+	ADC10CTL0 |= ADC10IE; //ADC Interrupts Enabled
+	ADC10CTL0 |= ADC10SC | ENC | ADC10ON; //Start first conversion
 }

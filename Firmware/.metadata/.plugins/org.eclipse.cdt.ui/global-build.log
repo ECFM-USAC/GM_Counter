@@ -3056,3 +3056,1042 @@ remark #10372-D: (ULP 4.1) Detected uninitialized Port 3 in this project. Recomm
 ' '
 
 **** Build Finished ****
+
+**** Clean-only build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k clean 
+DEL /F  "FrequencySetup.out"  "FrequencySetup.hex" 
+Could Not Find C:\Users\Ivan\Documents\GitHub\GM_Counter\Firmware\FrequencySetup\Debug\FrequencySetup.out
+DEL /F "adc.pp" "gmCore.pp" "lcd.pp" "main.pp" "setup.pp" "timing.pp" 
+DEL /F "adc.obj" "gmCore.obj" "lcd.obj" "main.obj" "setup.obj" "timing.obj" 
+Could Not Find C:\Users\Ivan\Documents\GitHub\GM_Counter\Firmware\FrequencySetup\Debug\adc.obj
+'Finished clean'
+' '
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../adc.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="adc.pp"  "../adc.c"
+'Finished building: ../adc.c'
+' '
+'Building file: ../gmCore.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="gmCore.pp"  "../gmCore.c"
+'Finished building: ../gmCore.c'
+' '
+'Building file: ../lcd.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="lcd.pp"  "../lcd.c"
+"../lcd.c", line 9: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../lcd.c", line 9: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../lcd.c", line 10: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../lcd.c", line 10: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../lcd.c", line 64: remark #1530-D: (ULP 5.1) Detected modulo operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../lcd.c", line 65: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../lcd.c", line 68: remark #2553-D: (ULP 14.1) Array index (involving "i") of type "int". Recommend using "unsigned int"
+'Finished building: ../lcd.c'
+' '
+'Building file: ../main.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"../main.c", line 81: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function resetCounters. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 94: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function lcdLedOn. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 106: remark #1538-D: (ULP 10.1) ISR PORT2_ISR calls function soundTick. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 120: remark #1538-D: (ULP 10.1) ISR T0A1_ISR calls function soundOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 130: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 137: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 139: remark #1538-D: (ULP 10.1) ISR TA1CCR0_ISR calls function lcdLedOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 147: remark #1538-D: (ULP 10.1) ISR ADC10_ISR calls function frequencyFromAdc. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+'Finished building: ../main.c'
+' '
+'Building file: ../setup.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="setup.pp"  "../setup.c"
+"../setup.c", line 90: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+'Finished building: ../setup.c'
+' '
+'Building file: ../timing.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="timing.pp"  "../timing.c"
+"../timing.c", line 8: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+'Finished building: ../timing.c'
+' '
+'Building target: FrequencySetup.out'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"FrequencySetup.map" --heap_size=80 --stack_size=80 -i"C:/ti/ccsv6/ccs_base/msp430/include" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="FrequencySetup_linkInfo.xml" --rom_model -o "FrequencySetup.out" "./adc.obj" "./gmCore.obj" "./lcd.obj" "./main.obj" "./setup.obj" "./timing.obj" "../lnk_msp430g2553.cmd"  -l"libc.a" 
+<Linking>
+'Finished building target: FrequencySetup.out'
+' '
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+gmake: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../main.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"../main.c", line 81: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function resetCounters. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 94: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function lcdLedOn. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 106: remark #1538-D: (ULP 10.1) ISR PORT2_ISR calls function soundTick. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 120: remark #1538-D: (ULP 10.1) ISR T0A1_ISR calls function soundOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 130: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 137: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 139: remark #1538-D: (ULP 10.1) ISR TA1CCR0_ISR calls function lcdLedOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 147: remark #1538-D: (ULP 10.1) ISR ADC10_ISR calls function frequencyFromAdc. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+'Finished building: ../main.c'
+' '
+'Building target: FrequencySetup.out'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"FrequencySetup.map" --heap_size=80 --stack_size=80 -i"C:/ti/ccsv6/ccs_base/msp430/include" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="FrequencySetup_linkInfo.xml" --rom_model -o "FrequencySetup.out" "./adc.obj" "./gmCore.obj" "./lcd.obj" "./main.obj" "./setup.obj" "./timing.obj" "../lnk_msp430g2553.cmd"  -l"libc.a" 
+<Linking>
+'Finished building target: FrequencySetup.out'
+' '
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+gmake: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../main.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"../main.c", line 81: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function resetCounters. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 94: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function lcdLedOn. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 106: remark #1538-D: (ULP 10.1) ISR PORT2_ISR calls function soundTick. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 120: remark #1538-D: (ULP 10.1) ISR T0A1_ISR calls function soundOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 130: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 137: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 139: remark #1538-D: (ULP 10.1) ISR TA1CCR0_ISR calls function lcdLedOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 147: remark #1538-D: (ULP 10.1) ISR ADC10_ISR calls function frequencyFromAdc. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+'Finished building: ../main.c'
+' '
+'Building target: FrequencySetup.out'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"FrequencySetup.map" --heap_size=80 --stack_size=80 -i"C:/ti/ccsv6/ccs_base/msp430/include" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="FrequencySetup_linkInfo.xml" --rom_model -o "FrequencySetup.out" "./adc.obj" "./gmCore.obj" "./lcd.obj" "./main.obj" "./setup.obj" "./timing.obj" "../lnk_msp430g2553.cmd"  -l"libc.a" 
+<Linking>
+'Finished building target: FrequencySetup.out'
+' '
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+gmake: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../main.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"../main.c", line 81: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function resetCounters. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 94: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function lcdLedOn. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 106: remark #1538-D: (ULP 10.1) ISR PORT2_ISR calls function soundTick. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 120: remark #1538-D: (ULP 10.1) ISR T0A1_ISR calls function soundOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 130: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 137: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 139: remark #1538-D: (ULP 10.1) ISR TA1CCR0_ISR calls function lcdLedOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 147: remark #1538-D: (ULP 10.1) ISR ADC10_ISR calls function frequencyFromAdc. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+'Finished building: ../main.c'
+' '
+'Building target: FrequencySetup.out'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"FrequencySetup.map" --heap_size=80 --stack_size=80 -i"C:/ti/ccsv6/ccs_base/msp430/include" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="FrequencySetup_linkInfo.xml" --rom_model -o "FrequencySetup.out" "./adc.obj" "./gmCore.obj" "./lcd.obj" "./main.obj" "./setup.obj" "./timing.obj" "../lnk_msp430g2553.cmd"  -l"libc.a" 
+<Linking>
+'Finished building target: FrequencySetup.out'
+' '
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+gmake: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+gmake: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+gmake: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+gmake: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../main.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"../main.c", line 83: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function resetCounters. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 96: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function lcdLedOn. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 108: remark #1538-D: (ULP 10.1) ISR PORT2_ISR calls function soundTick. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 122: remark #1538-D: (ULP 10.1) ISR T0A1_ISR calls function soundOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 132: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 139: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 141: remark #1538-D: (ULP 10.1) ISR TA1CCR0_ISR calls function lcdLedOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 149: remark #1538-D: (ULP 10.1) ISR ADC10_ISR calls function frequencyFromAdc. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+'Finished building: ../main.c'
+' '
+'Building target: FrequencySetup.out'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"FrequencySetup.map" --heap_size=80 --stack_size=80 -i"C:/ti/ccsv6/ccs_base/msp430/include" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="FrequencySetup_linkInfo.xml" --rom_model -o "FrequencySetup.out" "./adc.obj" "./gmCore.obj" "./lcd.obj" "./main.obj" "./setup.obj" "./timing.obj" "../lnk_msp430g2553.cmd"  -l"libc.a" 
+<Linking>
+'Finished building target: FrequencySetup.out'
+' '
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+gmake: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../main.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"../main.c", line 83: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function resetCounters. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 96: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function lcdLedOn. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 108: remark #1538-D: (ULP 10.1) ISR PORT2_ISR calls function soundTick. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 122: remark #1538-D: (ULP 10.1) ISR T0A1_ISR calls function soundOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 132: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 139: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 141: remark #1538-D: (ULP 10.1) ISR TA1CCR0_ISR calls function lcdLedOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 149: remark #1538-D: (ULP 10.1) ISR ADC10_ISR calls function frequencyFromAdc. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+'Finished building: ../main.c'
+' '
+'Building target: FrequencySetup.out'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"FrequencySetup.map" --heap_size=80 --stack_size=80 -i"C:/ti/ccsv6/ccs_base/msp430/include" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="FrequencySetup_linkInfo.xml" --rom_model -o "FrequencySetup.out" "./adc.obj" "./gmCore.obj" "./lcd.obj" "./main.obj" "./setup.obj" "./timing.obj" "../lnk_msp430g2553.cmd"  -l"libc.a" 
+<Linking>
+'Finished building target: FrequencySetup.out'
+' '
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+gmake: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../adc.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="adc.pp"  "../adc.c"
+'Finished building: ../adc.c'
+' '
+'Building file: ../main.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"../main.c", line 81: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function resetCounters. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 94: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function lcdLedOn. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 106: remark #1538-D: (ULP 10.1) ISR PORT2_ISR calls function soundTick. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 120: remark #1538-D: (ULP 10.1) ISR T0A1_ISR calls function soundOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 130: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 137: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 139: remark #1538-D: (ULP 10.1) ISR TA1CCR0_ISR calls function lcdLedOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 147: remark #1538-D: (ULP 10.1) ISR ADC10_ISR calls function frequencyFromAdc. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+'Finished building: ../main.c'
+' '
+'Building target: FrequencySetup.out'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"FrequencySetup.map" --heap_size=80 --stack_size=80 -i"C:/ti/ccsv6/ccs_base/msp430/include" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="FrequencySetup_linkInfo.xml" --rom_model -o "FrequencySetup.out" "./adc.obj" "./gmCore.obj" "./lcd.obj" "./main.obj" "./setup.obj" "./timing.obj" "../lnk_msp430g2553.cmd"  -l"libc.a" 
+<Linking>
+'Finished building target: FrequencySetup.out'
+' '
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+gmake: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+gmake: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../adc.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="adc.pp"  "../adc.c"
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+'Finished building: ../adc.c'
+' '
+'Building file: ../main.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"../main.c", line 81: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function resetCounters. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 94: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function lcdLedOn. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 106: remark #1538-D: (ULP 10.1) ISR PORT2_ISR calls function soundTick. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 120: remark #1538-D: (ULP 10.1) ISR T0A1_ISR calls function soundOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 130: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 137: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 139: remark #1538-D: (ULP 10.1) ISR TA1CCR0_ISR calls function lcdLedOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 147: remark #1538-D: (ULP 10.1) ISR ADC10_ISR calls function frequencyFromAdc. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+'Finished building: ../main.c'
+' '
+'Building target: FrequencySetup.out'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"FrequencySetup.map" --heap_size=80 --stack_size=80 -i"C:/ti/ccsv6/ccs_base/msp430/include" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="FrequencySetup_linkInfo.xml" --rom_model -o "FrequencySetup.out" "./adc.obj" "./gmCore.obj" "./lcd.obj" "./main.obj" "./setup.obj" "./timing.obj" "../lnk_msp430g2553.cmd"  -l"libc.a" 
+<Linking>
+error #10056: symbol "COUNT" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+error #10056: symbol "STOP_FREQUENCY" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+error #10056: symbol "VOLTAGES" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+
+>> Compilation failure
+error #10056: symbol "START_FREQUENCY" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+error #10056: symbol "STEP_FREQUENCY" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+error #10056: symbol "ORIGINAL_VOLTAGES" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+error #10010: errors encountered during linking; "FrequencySetup.out" not built
+gmake: *** [FrequencySetup.out] Error 1
+gmake: Target `all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../adc.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="adc.pp"  "../adc.c"
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+
+"../adc.c", line 2: error #11-D: unrecognized preprocessing directive
+>> Compilation failure
+"../adc.c", line 7: remark #1533-D: (ULP 6.1) Detected use of multiplication on a device that has no hardware multiplier
+1 error detected in the compilation of "../adc.c".
+gmake: *** [adc.obj] Error 1
+'Building file: ../main.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"../main.c", line 81: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function resetCounters. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 94: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function lcdLedOn. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 106: remark #1538-D: (ULP 10.1) ISR PORT2_ISR calls function soundTick. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 120: remark #1538-D: (ULP 10.1) ISR T0A1_ISR calls function soundOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 130: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 137: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 139: remark #1538-D: (ULP 10.1) ISR TA1CCR0_ISR calls function lcdLedOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 147: remark #1538-D: (ULP 10.1) ISR ADC10_ISR calls function frequencyFromAdc. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+'Finished building: ../main.c'
+' '
+gmake: Target `all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../adc.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="adc.pp"  "../adc.c"
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"../adc.c", line 7: remark #1533-D: (ULP 6.1) Detected use of multiplication on a device that has no hardware multiplier
+'Finished building: ../adc.c'
+' '
+'Building target: FrequencySetup.out'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"FrequencySetup.map" --heap_size=80 --stack_size=80 -i"C:/ti/ccsv6/ccs_base/msp430/include" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="FrequencySetup_linkInfo.xml" --rom_model -o "FrequencySetup.out" "./adc.obj" "./gmCore.obj" "./lcd.obj" "./main.obj" "./setup.obj" "./timing.obj" "../lnk_msp430g2553.cmd"  -l"libc.a" 
+<Linking>
+error #10056: symbol "COUNT" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+error #10056: symbol "STOP_FREQUENCY" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+error #10056: symbol "VOLTAGES" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+
+error #10056: symbol "START_FREQUENCY" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+>> Compilation failure
+error #10056: symbol "STEP_FREQUENCY" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+error #10056: symbol "ORIGINAL_VOLTAGES" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+error #10010: errors encountered during linking; "FrequencySetup.out" not built
+gmake: *** [FrequencySetup.out] Error 1
+gmake: Target `all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Clean-only build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k clean 
+DEL /F  "FrequencySetup.out"  "FrequencySetup.hex" 
+Could Not Find C:\Users\Ivan\Documents\GitHub\GM_Counter\Firmware\FrequencySetup\Debug\FrequencySetup.out
+DEL /F "adc.pp" "gmCore.pp" "lcd.pp" "main.pp" "setup.pp" "timing.pp" 
+DEL /F "adc.obj" "gmCore.obj" "lcd.obj" "main.obj" "setup.obj" "timing.obj" 
+'Finished clean'
+' '
+
+**** Build Finished ****
+
+**** Clean-only build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k clean 
+DEL /F  "FrequencySetup.out"  "FrequencySetup.hex" 
+Could Not Find C:\Users\Ivan\Documents\GitHub\GM_Counter\Firmware\FrequencySetup\Debug\FrequencySetup.out
+DEL /F "adc.pp" "gmCore.pp" "lcd.pp" "main.pp" "setup.pp" "timing.pp" 
+Could Not Find C:\Users\Ivan\Documents\GitHub\GM_Counter\Firmware\FrequencySetup\Debug\adc.pp
+DEL /F "adc.obj" "gmCore.obj" "lcd.obj" "main.obj" "setup.obj" "timing.obj" 
+Could Not Find C:\Users\Ivan\Documents\GitHub\GM_Counter\Firmware\FrequencySetup\Debug\adc.obj
+'Finished clean'
+' '
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../adc.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="adc.pp"  "../adc.c"
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"../adc.c", line 7: remark #1533-D: (ULP 6.1) Detected use of multiplication on a device that has no hardware multiplier
+'Finished building: ../adc.c'
+' '
+'Building file: ../gmCore.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="gmCore.pp"  "../gmCore.c"
+'Finished building: ../gmCore.c'
+' '
+'Building file: ../lcd.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="lcd.pp"  "../lcd.c"
+"../lcd.c", line 9: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../lcd.c", line 9: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../lcd.c", line 10: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../lcd.c", line 10: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../lcd.c", line 64: remark #1530-D: (ULP 5.1) Detected modulo operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../lcd.c", line 65: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../lcd.c", line 68: remark #2553-D: (ULP 14.1) Array index (involving "i") of type "int". Recommend using "unsigned int"
+'Finished building: ../lcd.c'
+' '
+'Building file: ../main.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"../main.c", line 81: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function resetCounters. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 94: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function lcdLedOn. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 106: remark #1538-D: (ULP 10.1) ISR PORT2_ISR calls function soundTick. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 120: remark #1538-D: (ULP 10.1) ISR T0A1_ISR calls function soundOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 130: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 137: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 139: remark #1538-D: (ULP 10.1) ISR TA1CCR0_ISR calls function lcdLedOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 147: remark #1538-D: (ULP 10.1) ISR ADC10_ISR calls function frequencyFromAdc. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+'Finished building: ../main.c'
+' '
+'Building file: ../setup.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="setup.pp"  "../setup.c"
+"../setup.c", line 90: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+'Finished building: ../setup.c'
+' '
+'Building file: ../timing.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="timing.pp"  "../timing.c"
+"../timing.c", line 8: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+'Finished building: ../timing.c'
+' '
+'Building target: FrequencySetup.out'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"FrequencySetup.map" --heap_size=80 --stack_size=80 -i"C:/ti/ccsv6/ccs_base/msp430/include" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="FrequencySetup_linkInfo.xml" --rom_model -o "FrequencySetup.out" "./adc.obj" "./gmCore.obj" "./lcd.obj" "./main.obj" "./setup.obj" "./timing.obj" "../lnk_msp430g2553.cmd"  -l"libc.a" 
+<Linking>
+error #10056: symbol "COUNT" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+error #10056: symbol "STOP_FREQUENCY" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+error #10056: symbol "VOLTAGES" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+
+error #10056: symbol "START_FREQUENCY" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+>> Compilation failure
+error #10056: symbol "STEP_FREQUENCY" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+error #10056: symbol "ORIGINAL_VOLTAGES" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+error #10010: errors encountered during linking; "FrequencySetup.out" not built
+gmake: *** [FrequencySetup.out] Error 1
+gmake: Target `all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building target: FrequencySetup.out'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"FrequencySetup.map" --heap_size=80 --stack_size=80 -i"C:/ti/ccsv6/ccs_base/msp430/include" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="FrequencySetup_linkInfo.xml" --rom_model -o "FrequencySetup.out" "./adc.obj" "./gmCore.obj" "./lcd.obj" "./main.obj" "./setup.obj" "./timing.obj" "../lnk_msp430g2553.cmd"  -l"libc.a" 
+<Linking>
+error #10056: symbol "COUNT" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+error #10056: symbol "STOP_FREQUENCY" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+
+error #10056: symbol "VOLTAGES" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+error #10056: symbol "START_FREQUENCY" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+>> Compilation failure
+error #10056: symbol "STEP_FREQUENCY" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+error #10056: symbol "ORIGINAL_VOLTAGES" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+error #10010: errors encountered during linking; "FrequencySetup.out" not built
+gmake: *** [FrequencySetup.out] Error 1
+gmake: Target `all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../adc.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="adc.pp"  "../adc.c"
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"../adc.c", line 7: remark #1533-D: (ULP 6.1) Detected use of multiplication on a device that has no hardware multiplier
+'Finished building: ../adc.c'
+' '
+'Building file: ../main.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"../main.c", line 81: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function resetCounters. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 94: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function lcdLedOn. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 106: remark #1538-D: (ULP 10.1) ISR PORT2_ISR calls function soundTick. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 120: remark #1538-D: (ULP 10.1) ISR T0A1_ISR calls function soundOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 130: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 137: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 139: remark #1538-D: (ULP 10.1) ISR TA1CCR0_ISR calls function lcdLedOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 147: remark #1538-D: (ULP 10.1) ISR ADC10_ISR calls function frequencyFromAdc. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+'Finished building: ../main.c'
+' '
+'Building target: FrequencySetup.out'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"FrequencySetup.map" --heap_size=80 --stack_size=80 -i"C:/ti/ccsv6/ccs_base/msp430/include" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="FrequencySetup_linkInfo.xml" --rom_model -o "FrequencySetup.out" "./adc.obj" "./gmCore.obj" "./lcd.obj" "./main.obj" "./setup.obj" "./timing.obj" "../lnk_msp430g2553.cmd"  -l"libc.a" 
+<Linking>
+error #10056: symbol "COUNT" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+error #10056: symbol "STOP_FREQUENCY" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+error #10056: symbol "VOLTAGES" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+error #10056: symbol "START_FREQUENCY" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+
+error #10056: symbol "STEP_FREQUENCY" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+>> Compilation failure
+error #10056: symbol "ORIGINAL_VOLTAGES" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+error #10010: errors encountered during linking; "FrequencySetup.out" not built
+gmake: *** [FrequencySetup.out] Error 1
+gmake: Target `all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../adc.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="adc.pp"  "../adc.c"
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"../adc.c", line 6: remark #1533-D: (ULP 6.1) Detected use of multiplication on a device that has no hardware multiplier
+'Finished building: ../adc.c'
+' '
+'Building file: ../main.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"../main.c", line 81: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function resetCounters. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 94: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function lcdLedOn. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 106: remark #1538-D: (ULP 10.1) ISR PORT2_ISR calls function soundTick. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 120: remark #1538-D: (ULP 10.1) ISR T0A1_ISR calls function soundOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 130: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 137: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 139: remark #1538-D: (ULP 10.1) ISR TA1CCR0_ISR calls function lcdLedOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 147: remark #1538-D: (ULP 10.1) ISR ADC10_ISR calls function frequencyFromAdc. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+'Finished building: ../main.c'
+' '
+'Building target: FrequencySetup.out'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"FrequencySetup.map" --heap_size=80 --stack_size=80 -i"C:/ti/ccsv6/ccs_base/msp430/include" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="FrequencySetup_linkInfo.xml" --rom_model -o "FrequencySetup.out" "./adc.obj" "./gmCore.obj" "./lcd.obj" "./main.obj" "./setup.obj" "./timing.obj" "../lnk_msp430g2553.cmd"  -l"libc.a" 
+<Linking>
+error #10056: symbol "COUNT" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+error #10056: symbol "STOP_FREQUENCY" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+error #10056: symbol "VOLTAGES" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+
+error #10056: symbol "START_FREQUENCY" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+>> Compilation failure
+error #10056: symbol "STEP_FREQUENCY" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+error #10056: symbol "ORIGINAL_VOLTAGES" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+error #10010: errors encountered during linking; "FrequencySetup.out" not built
+gmake: *** [FrequencySetup.out] Error 1
+gmake: Target `all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../adc.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="adc.pp"  "../adc.c"
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"../adc.c", line 7: remark #1533-D: (ULP 6.1) Detected use of multiplication on a device that has no hardware multiplier
+'Finished building: ../adc.c'
+' '
+'Building file: ../main.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"../main.c", line 81: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function resetCounters. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 94: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function lcdLedOn. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 106: remark #1538-D: (ULP 10.1) ISR PORT2_ISR calls function soundTick. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 120: remark #1538-D: (ULP 10.1) ISR T0A1_ISR calls function soundOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 130: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 137: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 139: remark #1538-D: (ULP 10.1) ISR TA1CCR0_ISR calls function lcdLedOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 147: remark #1538-D: (ULP 10.1) ISR ADC10_ISR calls function frequencyFromAdc. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+'Finished building: ../main.c'
+' '
+'Building target: FrequencySetup.out'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"FrequencySetup.map" --heap_size=80 --stack_size=80 -i"C:/ti/ccsv6/ccs_base/msp430/include" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="FrequencySetup_linkInfo.xml" --rom_model -o "FrequencySetup.out" "./adc.obj" "./gmCore.obj" "./lcd.obj" "./main.obj" "./setup.obj" "./timing.obj" "../lnk_msp430g2553.cmd"  -l"libc.a" 
+<Linking>
+error #10056: symbol "COUNT" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+error #10056: symbol "STOP_FREQUENCY" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+error #10056: symbol "VOLTAGES" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+
+error #10056: symbol "START_FREQUENCY" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+>> Compilation failure
+error #10056: symbol "STEP_FREQUENCY" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+error #10056: symbol "ORIGINAL_VOLTAGES" redefined: first defined in "./adc.obj"; redefined in "./main.obj"
+error #10010: errors encountered during linking; "FrequencySetup.out" not built
+gmake: *** [FrequencySetup.out] Error 1
+gmake: Target `all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../adc.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="adc.pp"  "../adc.c"
+'Finished building: ../adc.c'
+' '
+'Building file: ../main.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"../main.c", line 81: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function resetCounters. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 94: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function lcdLedOn. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 106: remark #1538-D: (ULP 10.1) ISR PORT2_ISR calls function soundTick. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 120: remark #1538-D: (ULP 10.1) ISR T0A1_ISR calls function soundOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 130: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 137: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 139: remark #1538-D: (ULP 10.1) ISR TA1CCR0_ISR calls function lcdLedOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 147: remark #1538-D: (ULP 10.1) ISR ADC10_ISR calls function frequencyFromAdc. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+'Finished building: ../main.c'
+' '
+'Building target: FrequencySetup.out'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"FrequencySetup.map" --heap_size=80 --stack_size=80 -i"C:/ti/ccsv6/ccs_base/msp430/include" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="FrequencySetup_linkInfo.xml" --rom_model -o "FrequencySetup.out" "./adc.obj" "./gmCore.obj" "./lcd.obj" "./main.obj" "./setup.obj" "./timing.obj" "../lnk_msp430g2553.cmd"  -l"libc.a" 
+<Linking>
+'Finished building target: FrequencySetup.out'
+' '
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+gmake: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../main.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"../main.c", line 81: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function resetCounters. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 94: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function lcdLedOn. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 106: remark #1538-D: (ULP 10.1) ISR PORT2_ISR calls function soundTick. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 120: remark #1538-D: (ULP 10.1) ISR T0A1_ISR calls function soundOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 130: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 137: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 139: remark #1538-D: (ULP 10.1) ISR TA1CCR0_ISR calls function lcdLedOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 151: warning #225-D: function "__delay_ms" declared implicitly
+"../main.c", line 147: remark #1538-D: (ULP 10.1) ISR ADC10_ISR calls function frequencyFromAdc. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 151: remark #1538-D: (ULP 10.1) ISR ADC10_ISR calls function __delay_ms. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+'Finished building: ../main.c'
+' '
+'Building target: FrequencySetup.out'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"FrequencySetup.map" --heap_size=80 --stack_size=80 -i"C:/ti/ccsv6/ccs_base/msp430/include" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="FrequencySetup_linkInfo.xml" --rom_model -o "FrequencySetup.out" "./adc.obj" "./gmCore.obj" "./lcd.obj" "./main.obj" "./setup.obj" "./timing.obj" "../lnk_msp430g2553.cmd"  -l"libc.a" 
+<Linking>
+
+ undefined  first referenced
+  symbol        in file     
+ ---------  ----------------
+
+ __delay_ms ./main.obj      
+>> Compilation failure
+
+error #10234-D: unresolved symbols remain
+error #10010: errors encountered during linking; "FrequencySetup.out" not built
+gmake: *** [FrequencySetup.out] Error 1
+gmake: Target `all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building target: FrequencySetup.out'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"FrequencySetup.map" --heap_size=80 --stack_size=80 -i"C:/ti/ccsv6/ccs_base/msp430/include" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="FrequencySetup_linkInfo.xml" --rom_model -o "FrequencySetup.out" "./adc.obj" "./gmCore.obj" "./lcd.obj" "./main.obj" "./setup.obj" "./timing.obj" "../lnk_msp430g2553.cmd"  -l"libc.a" 
+<Linking>
+
+ undefined  first referenced
+  symbol        in file     
+ ---------  ----------------
+ __delay_ms ./main.obj      
+
+error #10234-D: unresolved symbols remain
+
+error #10010: errors encountered during linking; "FrequencySetup.out" not built
+>> Compilation failure
+gmake: *** [FrequencySetup.out] Error 1
+gmake: Target `all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../main.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"../main.c", line 81: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function resetCounters. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 94: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function lcdLedOn. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 106: remark #1538-D: (ULP 10.1) ISR PORT2_ISR calls function soundTick. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 120: remark #1538-D: (ULP 10.1) ISR T0A1_ISR calls function soundOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 130: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 137: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 139: remark #1538-D: (ULP 10.1) ISR TA1CCR0_ISR calls function lcdLedOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 147: remark #1538-D: (ULP 10.1) ISR ADC10_ISR calls function frequencyFromAdc. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+'Finished building: ../main.c'
+' '
+'Building target: FrequencySetup.out'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"FrequencySetup.map" --heap_size=80 --stack_size=80 -i"C:/ti/ccsv6/ccs_base/msp430/include" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="FrequencySetup_linkInfo.xml" --rom_model -o "FrequencySetup.out" "./adc.obj" "./gmCore.obj" "./lcd.obj" "./main.obj" "./setup.obj" "./timing.obj" "../lnk_msp430g2553.cmd"  -l"libc.a" 
+<Linking>
+'Finished building target: FrequencySetup.out'
+' '
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../setup.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="setup.pp"  "../setup.c"
+"../setup.c", line 90: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+'Finished building: ../setup.c'
+' '
+'Building target: FrequencySetup.out'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"FrequencySetup.map" --heap_size=80 --stack_size=80 -i"C:/ti/ccsv6/ccs_base/msp430/include" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="FrequencySetup_linkInfo.xml" --rom_model -o "FrequencySetup.out" "./adc.obj" "./gmCore.obj" "./lcd.obj" "./main.obj" "./setup.obj" "./timing.obj" "../lnk_msp430g2553.cmd"  -l"libc.a" 
+<Linking>
+'Finished building target: FrequencySetup.out'
+' '
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+gmake: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../setup.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="setup.pp"  "../setup.c"
+"../setup.c", line 90: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+'Finished building: ../setup.c'
+' '
+'Building target: FrequencySetup.out'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"FrequencySetup.map" --heap_size=80 --stack_size=80 -i"C:/ti/ccsv6/ccs_base/msp430/include" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="FrequencySetup_linkInfo.xml" --rom_model -o "FrequencySetup.out" "./adc.obj" "./gmCore.obj" "./lcd.obj" "./main.obj" "./setup.obj" "./timing.obj" "../lnk_msp430g2553.cmd"  -l"libc.a" 
+<Linking>
+'Finished building target: FrequencySetup.out'
+' '
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+gmake: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../gmCore.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="gmCore.pp"  "../gmCore.c"
+'Finished building: ../gmCore.c'
+' '
+'Building file: ../main.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"../main.c", line 81: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function resetCounters. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 94: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function lcdLedOn. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 107: warning #225-D: function "ledTick" declared implicitly
+"../main.c", line 106: remark #1538-D: (ULP 10.1) ISR PORT2_ISR calls function soundTick. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 107: remark #1538-D: (ULP 10.1) ISR PORT2_ISR calls function ledTick. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 122: warning #225-D: function "cntLedOff" declared implicitly
+"../main.c", line 121: remark #1538-D: (ULP 10.1) ISR T0A1_ISR calls function soundOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 122: remark #1538-D: (ULP 10.1) ISR T0A1_ISR calls function cntLedOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 132: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 139: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 141: remark #1538-D: (ULP 10.1) ISR TA1CCR0_ISR calls function lcdLedOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 149: remark #1538-D: (ULP 10.1) ISR ADC10_ISR calls function frequencyFromAdc. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+'Finished building: ../main.c'
+' '
+'Building target: FrequencySetup.out'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"FrequencySetup.map" --heap_size=80 --stack_size=80 -i"C:/ti/ccsv6/ccs_base/msp430/include" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="FrequencySetup_linkInfo.xml" --rom_model -o "FrequencySetup.out" "./adc.obj" "./gmCore.obj" "./lcd.obj" "./main.obj" "./setup.obj" "./timing.obj" "../lnk_msp430g2553.cmd"  -l"libc.a" 
+<Linking>
+'Finished building target: FrequencySetup.out'
+' '
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+gmake: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+gmake: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../gmCore.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="gmCore.pp"  "../gmCore.c"
+'Finished building: ../gmCore.c'
+' '
+'Building file: ../main.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"../main.c", line 81: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function resetCounters. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 94: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function lcdLedOn. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 107: warning #225-D: function "ledTick" declared implicitly
+"../main.c", line 106: remark #1538-D: (ULP 10.1) ISR PORT2_ISR calls function soundTick. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 107: remark #1538-D: (ULP 10.1) ISR PORT2_ISR calls function ledTick. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 122: warning #225-D: function "cntLedOff" declared implicitly
+"../main.c", line 121: remark #1538-D: (ULP 10.1) ISR T0A1_ISR calls function soundOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 122: remark #1538-D: (ULP 10.1) ISR T0A1_ISR calls function cntLedOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 132: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 139: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 141: remark #1538-D: (ULP 10.1) ISR TA1CCR0_ISR calls function lcdLedOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 149: remark #1538-D: (ULP 10.1) ISR ADC10_ISR calls function frequencyFromAdc. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+'Finished building: ../main.c'
+' '
+'Building target: FrequencySetup.out'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"FrequencySetup.map" --heap_size=80 --stack_size=80 -i"C:/ti/ccsv6/ccs_base/msp430/include" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="FrequencySetup_linkInfo.xml" --rom_model -o "FrequencySetup.out" "./adc.obj" "./gmCore.obj" "./lcd.obj" "./main.obj" "./setup.obj" "./timing.obj" "../lnk_msp430g2553.cmd"  -l"libc.a" 
+<Linking>
+'Finished building target: FrequencySetup.out'
+' '
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../adc.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="adc.pp"  "../adc.c"
+'Finished building: ../adc.c'
+' '
+'Building file: ../main.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"../main.c", line 81: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function resetCounters. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 94: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function lcdLedOn. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 107: warning #225-D: function "ledTick" declared implicitly
+"../main.c", line 106: remark #1538-D: (ULP 10.1) ISR PORT2_ISR calls function soundTick. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 107: remark #1538-D: (ULP 10.1) ISR PORT2_ISR calls function ledTick. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 108: remark #1538-D: (ULP 10.1) ISR PORT2_ISR calls function lcdLedOn. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 123: warning #225-D: function "cntLedOff" declared implicitly
+"../main.c", line 122: remark #1538-D: (ULP 10.1) ISR T0A1_ISR calls function soundOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 123: remark #1538-D: (ULP 10.1) ISR T0A1_ISR calls function cntLedOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 133: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 140: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../main.c", line 142: remark #1538-D: (ULP 10.1) ISR TA1CCR0_ISR calls function lcdLedOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 150: remark #1538-D: (ULP 10.1) ISR ADC10_ISR calls function frequencyFromAdc. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+'Finished building: ../main.c'
+' '
+'Building target: FrequencySetup.out'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"FrequencySetup.map" --heap_size=80 --stack_size=80 -i"C:/ti/ccsv6/ccs_base/msp430/include" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="FrequencySetup_linkInfo.xml" --rom_model -o "FrequencySetup.out" "./adc.obj" "./gmCore.obj" "./lcd.obj" "./main.obj" "./setup.obj" "./timing.obj" "../lnk_msp430g2553.cmd"  -l"libc.a" 
+<Linking>
+'Finished building target: FrequencySetup.out'
+' '
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+gmake: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project FrequencySetup ****
+
+"C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../main.c'
+'Invoking: MSP430 Compiler'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
+"../main.c", line 81: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function resetCounters. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 94: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function lcdLedOn. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 107: warning #225-D: function "ledTick" declared implicitly
+"../main.c", line 106: remark #1538-D: (ULP 10.1) ISR PORT2_ISR calls function soundTick. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 107: remark #1538-D: (ULP 10.1) ISR PORT2_ISR calls function ledTick. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 108: remark #1538-D: (ULP 10.1) ISR PORT2_ISR calls function lcdLedOn. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 123: warning #225-D: function "cntLedOff" declared implicitly
+"../main.c", line 122: remark #1538-D: (ULP 10.1) ISR T0A1_ISR calls function soundOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 123: remark #1538-D: (ULP 10.1) ISR T0A1_ISR calls function cntLedOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 133: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 155: remark #1538-D: (ULP 10.1) ISR ADC10_ISR calls function frequencyFromAdc. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+'Finished building: ../main.c'
+' '
+'Building target: FrequencySetup.out'
+'Invoking: MSP430 Linker'
+"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"FrequencySetup.map" --heap_size=80 --stack_size=80 -i"C:/ti/ccsv6/ccs_base/msp430/include" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="FrequencySetup_linkInfo.xml" --rom_model -o "FrequencySetup.out" "./adc.obj" "./gmCore.obj" "./lcd.obj" "./main.obj" "./setup.obj" "./timing.obj" "../lnk_msp430g2553.cmd"  -l"libc.a" 
+<Linking>
+'Finished building target: FrequencySetup.out'
+' '
+
+**** Build Finished ****

@@ -30,9 +30,21 @@ void soundOff(void){
 	TA0CCTL1 &= ~CCIE; //Disable TACCR1 Interrupts
 }
 
+void cntLedOn(void){
+	P1OUT |= LED_OK;
+}
+
+void cntLedOff(void){
+	P1OUT &= ~LED_OK;
+}
+
 void soundTick(void){ //Make a "tick" GM-like sound
 	tickCount = CYCLES_PER_TICK; //How many cycles per tick?
     soundOn(); //Sound will be turned off within ISR
+}
+
+void ledTick(void){
+	cntLedOn();
 }
 
 void resetCounters(void){ //Reset CPM, CPS and Counts
