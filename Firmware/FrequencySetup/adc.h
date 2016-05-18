@@ -7,9 +7,9 @@
 
 
 #define ADC10_RESOLUTION 10
-#define START_FREQUENCY 2000
-#define FREQUENCY_STEP 100
-#define RESOLUTION_SHIFT 5 //ADC Data Right Shift (decrease resolution)
+#define START_FREQUENCY 1300
+#define FREQUENCY_STEP 20
+#define RESOLUTION_SHIFT 1 //ADC Data Right Shift (decrease resolution)
 //4 Right Shifts = 6 bits = (0 -> 63) Range
 
 #define MAX_VALUE (1 << (ADC10_RESOLUTION - RESOLUTION_SHIFT)) - 1 //63

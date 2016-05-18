@@ -2,30 +2,6 @@
 **** Build of configuration Debug for project FrequencySetup ****
 
 "C:\\ti\\ccsv6\\utils\\bin\\gmake" -k all 
-'Building file: ../main.c'
-'Invoking: MSP430 Compiler'
-"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --include_path="C:/ti/ccsv6/ccs_base/msp430/include" --include_path="C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
-"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
-"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
-"..\hvValues.h", line 9: warning #2170-D: use of a const variable in a constant expression is nonstandard in C
-"../main.c", line 81: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function resetCounters. Recommend moving function call away from ISR, or inlining the function, or using pragmas
-"../main.c", line 94: remark #1538-D: (ULP 10.1) ISR PORT1_ISR calls function lcdLedOn. Recommend moving function call away from ISR, or inlining the function, or using pragmas
-"../main.c", line 107: warning #225-D: function "ledTick" declared implicitly
-"../main.c", line 106: remark #1538-D: (ULP 10.1) ISR PORT2_ISR calls function soundTick. Recommend moving function call away from ISR, or inlining the function, or using pragmas
-"../main.c", line 107: remark #1538-D: (ULP 10.1) ISR PORT2_ISR calls function ledTick. Recommend moving function call away from ISR, or inlining the function, or using pragmas
-"../main.c", line 108: remark #1538-D: (ULP 10.1) ISR PORT2_ISR calls function lcdLedOn. Recommend moving function call away from ISR, or inlining the function, or using pragmas
-"../main.c", line 123: warning #225-D: function "cntLedOff" declared implicitly
-"../main.c", line 122: remark #1538-D: (ULP 10.1) ISR T0A1_ISR calls function soundOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
-"../main.c", line 123: remark #1538-D: (ULP 10.1) ISR T0A1_ISR calls function cntLedOff. Recommend moving function call away from ISR, or inlining the function, or using pragmas
-"../main.c", line 133: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
-"../main.c", line 155: remark #1538-D: (ULP 10.1) ISR ADC10_ISR calls function frequencyFromAdc. Recommend moving function call away from ISR, or inlining the function, or using pragmas
-'Finished building: ../main.c'
-' '
-'Building target: FrequencySetup.out'
-'Invoking: MSP430 Linker'
-"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --advice:power=all -g --define=__MSP430G2553__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"FrequencySetup.map" --heap_size=80 --stack_size=80 -i"C:/ti/ccsv6/ccs_base/msp430/include" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="FrequencySetup_linkInfo.xml" --rom_model -o "FrequencySetup.out" "./adc.obj" "./gmCore.obj" "./lcd.obj" "./main.obj" "./setup.obj" "./timing.obj" "../lnk_msp430g2553.cmd"  -l"libc.a" 
-<Linking>
-'Finished building target: FrequencySetup.out'
-' '
+gmake: Nothing to be done for `all'.
 
 **** Build Finished ****
